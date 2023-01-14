@@ -1,0 +1,84 @@
+﻿  @model agricultural_guide.Models.crop
+
+   <main>
+
+            <div class="">
+                <h2> المحاصيل </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>تعديل <b>محصول </b></h2>
+                    <form asp-action="Editcrop" asp-controller="Crop">
+                        <div>
+                        <div >
+                            <span>رقم المحصول</span>
+                            <input class="fild"  asp-for=crop_id placeholder="" >
+                        </div>
+                        <div >
+                            <span>أسم المحصول</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        <div >
+                            <span>صورة المحصول</span>
+                            <input class="fild"  asp-for=image_path placeholder="" >
+                        </div>
+                        
+                         <div >
+                            <span >حالة الحساب</span>
+                            
+                                <select asp-for=state dir="ltr" class="fild" >
+                                    <option value="1" selected >موقف</option>
+                                    <option value="2">مفعل</option>
+                                </select>
+                        </div>
+                        <div >
+                            <span >نوع المحصول حسب السماد</span>
+                            
+                                <select asp-for=type dir="ltr" class="fild" >
+                                    <option value="1" selected >حسب الاشجار</option>
+                                    <option value="2">حسب المساحة</option>
+                                </select>
+                        </div>
+                        
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                          <div >
+                            <span >نوع المحاصيل</span>
+                            <div class="fild">
+                              @Html.DropDownListFor(x => Model.crop_type, Model.crop_types, "أختر نوع للمحصول")
+                            </div>
+
+                           @* 
+                                <select asp-for=crop_type dir="ltr" class="fild" >
+                                    <option value="حبوب" selected >حبوب</option>
+                                    <option value="فواكه">فواكه</option>
+                                    <option value="خضروات">خضروات</option>
+
+                                </select>*@
+                        </div>
+                      </div>
+                      <div>
+                            <input class="submit" value="Save" type="submit">
+                            <input class="cancel" value="Cancel" type="submit">
+                      </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+            
+            <!--top end-->
+         
+            

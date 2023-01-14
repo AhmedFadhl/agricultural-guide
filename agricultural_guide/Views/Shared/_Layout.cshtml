@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp"
+      rel="stylesheet">
+  
+        <link rel="stylesheet" href="~/css/dash.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/fer.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/post.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/psets.css" asp-append-version="true" />
+
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <h2 >المرشد الزراعي</h2>
+            <input  type="text" id="myinput" onkeyup="myfunction()" placeholder="أكتب للبحث">
+                
+                
+
+                <button class="menu_btn" id="menu_btn">
+                    <div class="menu_btn" onclick="menu(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+        </button>
+            <div class="theme-toggler">
+                <!--
+
+                    <span class="material-icons-sharp" active >light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                -->
+                <img src="~/images/icons/icons8-day-and-night-50.png" alt="">
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>مرحبا ,<b>أدمن</b></p>
+                    <small class="text-muted">مدير</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="~/images/pro.jpg" alt="profile-photo">
+                </div>
+            </div>
+           </div>
+       
+    </header>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                   <!-- <img src="" alt="">-->
+                    <div class="close" id="close-btn">
+                     <!--   <span class="material-symbols-sharp">close</span>-->
+                     <img src="~/images/icons8-macos-close-32.png" alt="">
+                    </div>
+
+                </div>
+
+             </div>
+             <div class="sidebar">
+                <div class="active" >
+                    
+                    <div class="main_menu">
+                        <a asp-action="index" asp-controller="Home">
+                            <img src="~/images/icons/icons8-home-page-50.png" alt="">
+                            <h3>لوحة التحكم</h3>
+                            </a>
+                    </div>
+                        
+                    </div>
+                <div >
+                    
+                    <div class="main_menu" onclick="sub_menu()">
+                        <!--
+                            <span class="material-symbols-sharp">home</span> --> 
+                            <img src="~/images/icons/settings.png" alt="">
+                            <h3>الأعدادات</h3>
+                            <span>></span>
+
+                    </div>
+                        <ul>
+                            <li><a href="pages/add_advicer.html">الأعدادات الرئيسية</a></li>
+                            <li><a asp-action="fertilizer" asp-controller="Sitting"> الأسمدة</a></li>
+                            <li><a asp-action="crop_type" asp-controller="Sitting" > أنواع المحاصيل</a></li>
+                            <li><a asp-action="crop_type" asp-controller="Sitting" >  تركيبة السماد</a></li>
+
+
+                            
+                        </ul>
+                    </div>
+                <div class="sub_menu" onclick="sub()">
+                    
+                    <div class="main_menu" >
+                        <!--
+                            <span class="material-symbols-sharp">home</span> --> 
+                            <img src="~/images/icons/crop.png" alt="">
+                            <h3>المحاصيل</h3>
+                            <span>></span>
+
+                    </div>
+                        <ul>
+                            <li><a asp-action="crop" asp-controller="Crop">عرض المحاصيل</a></li>
+                            <li><a href="pages/add_fer_stage.html"> مرحلة تسميد</a></li>
+                            <li><a asp-action="addcrop" asp-controller="Crop">إضافة المحاصيل</a></li>
+                            <li><a href="pages/add_fer_qty.html"> كمية تسميد</a></li>
+                            
+                        </ul>
+                    </div>
+                
+                <div>
+                    
+                    <div class="main_menu" onclick="sub_menu()">
+                        <!--
+                            <span class="material-symbols-sharp">home</span> --> 
+                            <img src="~/images/icons/icons8-virus-50.png" alt="">
+                            <h3>الآفات</h3>
+                            <span>></span>
+                    </div>
+                        <ul>
+                            <li><a href="pages/pests.html">عرض الآفات</a></li>
+                            <li><a href="pages/addpest.html">إضافة آفة أو مرض</a></li>
+                            <li><a href="pages/add_pest_type.html">إضافة نوع الآفة</a></li> 
+                            <li><a href="pages/add_stage.html">إضافة مرحلة لمرض</a></li>
+                           
+                        </ul>
+                    </div>
+                
+             
+                    <div >
+                          
+                        <div class="main_menu">
+                            <a href="pages/advice.html">
+                                <img src="~/images/icons/icons8-edit-graph-report-80.png" alt="">
+                                <h3>النصائح</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+                    
+                          <div >
+                          
+                              <div class="main_menu">
+                                  <a href="pages/advicer.html">
+                                      <img src="~/images/icons/management.png" alt="">
+                                      <h3>المرشدين</h3>
+                                      </a>
+                              </div>
+                                  
+                              </div>
+                    <div >
+                    
+                        <div class="main_menu">
+                            <a href="pages/messages.html">
+                                <img src="~/images/icons/icons8-group-message-50.png" alt="">
+                                <h3>الرسائل</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+              
+                    <div >
+                    
+                        <div class="main_menu">
+                            <a href="pages/post.html">
+                                <img src="~/images/icons/online.png" alt="">
+                                <h3>المنشورات</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+                    <div >
+                    
+                        <div class="main_menu">
+                            <a href="pages/advertisments.html">
+                                <img src="~/images/icons/online.png" alt="">
+                                <h3>الأعلانات</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+                    <div >
+                    
+                        <div class="main_menu">
+                            <a href="pages/advertisments.html">
+                                <img src="~/images/icons/online.png" alt="">
+                                <h3>أستشاري بيع المحاصيل</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+                    <div >
+                    
+                        <div class="main_menu">
+                            <a href="#">
+                                <img src="~/images/icons/icons8-logout-50.png" alt="">
+                                <h3>تسجيل الخروج</h3>
+                                </a>
+                        </div>
+                            
+                        </div>
+    
+              
+                
+             </div>
+            </ul>
+        </aside>
+        <!--sidebae end-->
+        <!--main start-->
+@RenderBody()
+
+</div>
+    <script src="~/js/dash.js" asp-append-version="true"></script>
+</body>
+</html>
+

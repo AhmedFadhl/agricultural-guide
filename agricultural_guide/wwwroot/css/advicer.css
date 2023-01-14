@@ -1,0 +1,154 @@
+
+:root{
+    --color-primary:#7380ec;
+    --color-red:#ff7782;
+    --color-success:#41f1b6;
+    --color-warning:#ffbb55;
+    --color-white:#ffffff;
+    --color-infodark:#7d8da1;
+    --color-infolight:#dce1eb;
+    --color-dark:#363949;
+    --color-light:rgba(50, 52, 77, 0.18);
+    --color-primary-variant:#111e88;
+    --color-dark-variant:#677483;    
+    --color-background:#f6f6f9;
+    
+    --card-border-radius:2rem;
+    --border-radius-1:0.4rem;
+    --border-radius-2:0.8rem;
+    --border-radius-3:1.2rem;
+
+    --card-padding:1.4rem;
+    --padding-1:1.8rem;
+
+
+    --box-shadow:0 1rem 2rem var(--color-light);
+}
+.dart-theme-varibles{
+    --color-background:#181a1e;
+    --color-white:#202528;
+    --color-dark:#edeffd;
+    --color-dark-variant:#a3bdcc;
+    --color-light:rgba(0, 0, 0, 0.4);
+    --box-shadow:0 2rem 3rem var(--color-light);
+    
+}
+.adddev{
+    margin-top: 4.5rem;
+}
+.adddev b{
+    color: #41f1b6;
+}
+
+
+
+.addfild {
+    margin-top: 2rem;
+    background-color: var(--color-white);
+    width: 53vw;
+    height: auto;
+    align-items: center;
+    border-radius: var(--border-radius-3);
+    padding: var(--padding-1);
+    align-content: center;
+}
+.addfild form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 20vw;
+    text-align: center;
+    margin-right: 30rem;
+}
+
+.addfild form .fild{
+    background-color:rgba(150, 150, 150, 0.18);
+    border: 1px;
+    border-width: 1;
+    margin-bottom: 1rem;
+    padding:  1rem;
+    height: 50px;
+    margin-left: 2rem;
+}
+.addfild form  span{
+    color: var(--color-dark);
+    font-size: large;
+    margin-left: 2rem;
+}
+.addfild form  input{
+    background-color: transparent;
+    font-size: large;
+    direction: rtl;
+    text-align: start;
+}
+.addfild form  select{
+    background-color: transparent;
+    font-size: large;
+    direction: rtl;
+    text-align: start;
+    width: 17.5rem;
+}
+.addfild form .fildfile{
+    background-color:rgba(150, 150, 150, 0.18);
+    border: 1px;
+    border-width: 1;
+    margin-bottom: 1rem;
+    padding:  0rem;
+    height: 50px;
+    margin-left: 2rem;
+    align-items: flex-start;
+}
+.addfild form  input[type="file"]{
+    background-color: transparent;
+    font-size: large;
+    direction: rtl;
+    width: 12.5rem;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+.addfild form button{
+    background-color: darkturquoise;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 20px;
+    font-size: medium;
+    color: var(--color-white);
+    text-align: center;
+    margin-left: 2rem;
+}
+.addfild form .submit{
+    background-color: darkturquoise;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 10px;
+    font-size: medium;
+    color: var(--color-white);
+    text-align: center;
+    width: 80px;
+    margin-left: 7rem;
+}
+.addfild form  .cancel{
+    background-color: var(--color-red);
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 10px;
+    font-size: medium;
+    color: var(--color-white);
+    text-align: center;
+    width: 80px;
+    margin-left: 7rem;
+}
+
+.addfild form:first-child{
+    direction: ltr;
+    text-align: start;
+}
+.aaa{
+    position: absolute;
+    left: 330px;
+}
+.aa{
+    position: absolute;
+    left: 60px;
+}
+
+
+
+
+

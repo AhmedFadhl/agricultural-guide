@@ -8,77 +8,67 @@
             <div class="adddev">
                 <div class="addfild">  
                     <h2>تعديل <b>محصول </b></h2>
-                    <form asp-action="Editcrop" asp-controller="Crop">
+                    <form enctype="multipart/form-data" asp-action="Editcrop">
                         <div>
-                        <div >
-                            <span>رقم المحصول</span>
-                            <input class="fild"  asp-for=crop_id placeholder="" >
-                        </div>
+                    
                         <div >
                             <span>أسم المحصول</span>
                             <input class="fild"  asp-for=name placeholder="" >
                         </div>
-                        <div >
-                            <span>صورة المحصول</span>
-                            <input class="fild"  asp-for=image_path placeholder="" >
-                        </div>
                         
                          <div >
-                            <span >حالة الحساب</span>
+
+
+
+                            <span >الحالة </span>
                             
-                                <select asp-for=state dir="ltr" class="fild" >
-                                    <option value="1" selected >موقف</option>
+                              <select asp-for=state dir="ltr" class="fild" >
+                                    <option value="1">موقف</option>
                                     <option value="2">مفعل</option>
-                                </select>
+
+                              </select>
+
                         </div>
                         <div >
                             <span >نوع المحصول حسب السماد</span>
-                            
                                 <select asp-for=type dir="ltr" class="fild" >
                                     <option value="1" selected >حسب الاشجار</option>
                                     <option value="2">حسب المساحة</option>
                                 </select>
+
                         </div>
                         
+
+                       
                         <div>
                             <span>الوصف</span>
                             <input class="fild"  asp-for=description placeholder="" >
                         </div>
+                        
                           <div >
                             <span >نوع المحاصيل</span>
                             <div class="fild">
-                              @Html.DropDownListFor(x => Model.crop_type, Model.crop_types, "أختر نوع للمحصول")
+
+                             @Html.DropDownListFor(x => Model.crop_type, Model.crop_types, "أختر نوع للمحصول")
+                             <img src="~/images/icons/sort-arrows-couple-pointing-up-and-down.png" />
                             </div>
 
-                           @* 
-                                <select asp-for=crop_type dir="ltr" class="fild" >
-                                    <option value="حبوب" selected >حبوب</option>
-                                    <option value="فواكه">فواكه</option>
-                                    <option value="خضروات">خضروات</option>
-
-                                </select>*@
+                             <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="crop_image"   asp-for=crop_image title="" >
                         </div>
-                      </div>
-                      <div>
+                           
+                        </div>
+                      
+                    </div>
+                     <div>
                             <input class="submit" value="Save" type="submit">
-                            <input class="cancel" value="Cancel" type="submit">
-                      </div>
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
                     </form>
             </div>
             </div>
-            <!--
-                <div class="date">
-                    <input type="date">
-                </div>
-            -->
-          
-           
+      
         </main>
         <!--main end-->
-        <!--right side strart-->
-        <div class="right">
-            <!--top start-->
-            
-            <!--top end-->
-         
-            
+       

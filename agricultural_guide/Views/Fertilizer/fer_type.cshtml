@@ -1,1 +1,48 @@
-﻿
+﻿      
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>الأسمدة</b> </h2>
+                <button><a asp-action="addfer_type" asp-controller="Fertilizer">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أسم التركيبة </th>
+                            @for (var i = 0; i < 3; i++)
+                            {
+                                
+                             
+                            <th>السماد</th>
+                                
+                            }
+                        </tr>
+                    </thead>
+                    <tbody> 
+                            @foreach (var item in Model)
+                            {
+                        <tr>
+                                <td>@item.name</td>
+                               @foreach (var fer in item.fertilizer)
+                               {
+                                   
+                         <td>@fer </td>
+                               } 
+                        
+                        </tr>
+                            }
+                            
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+      

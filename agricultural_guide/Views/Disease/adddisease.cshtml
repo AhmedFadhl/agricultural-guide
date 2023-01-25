@@ -1,0 +1,95 @@
+﻿  @model agricultural_guide.Models.disease
+
+   <main>
+
+            <div class="">
+                <h2> الآفات </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>آفة او مرض جديد</b></h2>
+                    <form enctype="multipart/form-data" asp-action="adddisease">
+                        <div>
+                    
+                        <div >
+                            <span>أسم الآفة أو المرض</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        
+                        
+                     
+                       
+
+                        <div>
+                            <span>المكافحه العضوية</span>
+                            <input class="fild"  asp-for=anti_organic placeholder="" >
+                        </div>
+
+                        <div>
+                            <span>المكافحه الكيمائية</span>
+                            <input class="fild"  asp-for=chemical_control placeholder="" >
+                        </div>
+
+                        
+                        <div>
+                            <span> الاسباب</span>
+                            <input class="fild"  asp-for=reason placeholder="" >
+                        </div>
+                        
+                        <div>
+                            <span> الوقاية</span>
+                            <textarea class="fild"   asp-for=prevention placeholder="" >
+                            </textarea>
+                        </div>
+                        <div>
+                            <span> الأعراض</span>
+                            <textarea class="fild"  asp-for=symptoms placeholder="" ></textarea>
+                        </div> 
+                        <div>
+                            <span> التوصيات</span>
+                            <input class="fild"  asp-for=recommendations placeholder="" >
+                        </div>
+                        
+                        
+                          <div >
+                            <span >نوع المرض</span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.dis_type_id, Model.disease_types, "أختر نوع المرض")
+
+                            </div>
+                            </div>
+                             <div>
+                            <span>صورة المرض</span>
+                            <input class="fild" multiple type="file" name="disease_image"   asp-for=disease_image placeholder="" >
+                        </div>
+
+                            @*
+
+                                <select asp-for=crop_type dir="ltr" class="fild" >
+
+                                    <option value="حبوب" selected >حبوب</option>
+                                    <option value="فواكه">فواكه</option>
+                                    <option value="خضروات">خضروات</option>
+
+                                </select>
+                            *@
+                        </div>
+                      
+                    
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->

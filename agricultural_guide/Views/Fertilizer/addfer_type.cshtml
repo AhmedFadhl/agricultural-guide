@@ -1,0 +1,47 @@
+﻿  @model agricultural_guide.Models.fer_type
+
+   <main>
+
+            <div class="">
+                <h2> المحاصيل </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>محصول جديد</b></h2>
+                    <form enctype="multipart/form-data" asp-action="addfer_type">
+                        <div>
+                    
+                        <div >
+                            <span>أسم التركيبة</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                   
+                        
+                          <div >
+                            <span > السماد</span>
+                            <div class="fild">
+                                   
+                                    @Html.ListBoxFor(x => Model.fertilizer, Model.fertilizers, "أختر نوع للسماد")
+
+            )
+                            </div>
+                       
+                      
+                    </div>
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

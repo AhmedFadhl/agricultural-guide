@@ -1,0 +1,68 @@
+﻿  @model agricultural_guide.Models.users
+
+   <main>
+
+            <div class="">
+                <h2> المرشدين </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>مرشد جديد</b></h2>
+                    <form enctype="multipart/form-data" asp-action="add_adviser">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المرشد</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        <div >
+                            <span>رقم المرشد</span>
+                            <input class="fild"  asp-for=phone placeholder="" >
+                        </div> 
+
+                        <div >
+                            <span> التخصص</span>
+                            <input class="fild"  asp-for=specialize placeholder="" >
+                        </div>
+
+                         <div >
+
+                            <span >الحالة </span>
+                            
+                              <select asp-for=state dir="ltr" class="fild" >
+                                    <option value="1" selected >موقف</option>
+                                    <option value="2">مفعل</option>
+                              </select>
+                        </div>
+                       
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=about placeholder="" >
+                        </div>
+                        
+                            <input type="hidden"  asp-for=usertype placeholder="" >
+                        
+                          <div>
+                            <span>صورة المرشد</span>
+                            <input class="fild" multiple type="file" name="user_image"  asp-for=user_image placeholder="" >
+                          </div>
+                        </div>
+                      
+                    
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

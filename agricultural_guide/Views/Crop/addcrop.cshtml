@@ -15,10 +15,6 @@
                             <span>أسم المحصول</span>
                             <input class="fild"  asp-for=name placeholder="" >
                         </div>
-                        <div >
-                            <span>صورة المحصول</span>
-                            <input class="fild"  asp-for=image_path placeholder="" >
-                        </div>
                         
                          <div >
 
@@ -40,10 +36,7 @@
                         </div>
                         
 
-                        <div>
-                            <span>صورة المحصول</span>
-                            <input class="fild" multiple  asp-for=crop_image placeholder="" >
-                        </div>
+                       
 
                         <div>
                             <span>الوصف</span>
@@ -55,8 +48,13 @@
                             <div class="fild">
 
                              @Html.DropDownListFor(x => Model.crop_type, Model.crop_types, "أختر نوع للمحصول")
-                            </div>
 
+                            </div>
+                            </div>
+                             <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="crop_image"   asp-for=crop_image placeholder="" >
+                        </div>
 
                             @*
 
@@ -70,7 +68,7 @@
                             *@
                         </div>
                       
-                    </div>
+                    
                      <div>
                             <input class="submit" value="Save" type="submit">
                             <button class="cancel" onclick="backtocrop()" >الغاء</button>

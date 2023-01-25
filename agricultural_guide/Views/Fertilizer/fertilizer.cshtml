@@ -1,0 +1,49 @@
+﻿
+      
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>الأسمدة</b> </h2>
+                <button><a asp-action="addfertilizer" asp-controller="Fertilizer">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>رقم السماد </th>
+                            <th>أسم السماد</th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                            {
+                    
+                        <tr>
+                            <td>@item._id</td>
+                            <td>@item.name</td>
+                            <td>@item.description</td>
+                            <td class="management">
+                             <span class="edit"> @Html.ActionLink("تعديل","Edit_fertilizer",new{id=@item._id})</span>
+                             <span class="delet">@Html.ActionLink("حذف","Delete_fertilizer",new{id=@item._id})</span>
+
+                            </td>
+                        </tr>
+                        
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+      

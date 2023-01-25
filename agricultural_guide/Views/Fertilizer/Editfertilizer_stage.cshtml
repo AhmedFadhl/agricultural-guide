@@ -1,0 +1,40 @@
+﻿  @model agricultural_guide.Models.fertilizer_stage
+
+   <main>
+
+            <div class="">
+                <h2> مراحل التسميد </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>تعديل <b>مرحلة تسميد </b></h2>
+                    <form enctype="multipart/form-data" asp-action="Editfertilizer_stage">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المرحله</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                    </div>
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

@@ -1,4 +1,4 @@
-﻿      
+﻿@model IEnumerable<agricultural_guide.Models.crop>
  <main>
       <div class="pestpage">
                 <h2>إدارة <b>المحاصيل</b> </h2>
@@ -22,24 +22,33 @@
                             {
                     @if (item.state == 2)
                     {
-                        <tr>
+                        
+                            URI url = new URI();
+                            var path = url.url + item.image_path;
+                            var type = "";
+                        @if (item.type==1)
+                        {
+                            type = "عبر الأشجار";
+                        }
+                        else
+                        {
+                            type = "عبر المساحه";
+                        }
+
+                        <tr onclick="showDetiels('@item.name','@type','@item.crop_type','@item.description','@path')">
                            
                             <td>@item.name</td>
 
-                            @if (item.type==1)
-                           {
-                            <td>عبر الاشجار </td>
-
-                           }
-                           else
-                           {
-                           <td>عبر المساحة</td>
-                            }
+                           
+                           <td> @type</td>
+                            
                             <td>@item.crop_type</td>
                             <td>@item.description</td>
                             <td class="management">
-                             <span class="edit"> @Html.ActionLink("تعديل","Editcrop",new{id=@item._id})</span>
-                             <span class="delet">@Html.ActionLink("حذف","DeleteCrop",new{id=@item._id})</span>
+                             <span class="edit"><a href="@Url.Action("Editcrop", "Crop",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("DeleteCrop", "Crop",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/delete.png"> </a></span>
 
                             </td>
                         </tr>
@@ -64,19 +73,63 @@
             <!--top end-->
          
             <!--chat start-->
+
+              <div class="recent-advicer">
+                <div class="h2count">   
+                    <h2 >مواصفات المحصول
+                    </h2>
+                </div>
+                <div class="deties_container">
+                <div class="contain">
+                    <div class="request_crop">
+                        <div>
+
+                            <img id="detiels_image" src="../images/farm.jfif" alt="">
+                            
+                          
+                                <div class="crop-info">
+                                    <h3>أسم المحصول :</h3>
+                                    <h3 id="name_crop"></h3>
+                                    <h3>كيفية التسميد :</h3>
+                                    <h3 id="type"> </h3>
+                                    <h3>نوع المحصول :</h3>
+                                    <h3 id="type_crop"></h3>
+                                    
+                                </div>
+                                <div class="desc">
+                                    <h3 > الوصف :</h3>
+                                    <p id="description"> </p   >
+                                </div>
+                            
+                      
+                     
+                    </div>
+                        
+                        
+                    </div>
+                    <div class="bottombtn">    
+                        <button><span class="see_crop" > تعديل</span></button>
+                    </div>
+                    </div>
+                    
+                </div> 
+                </div>
+
+
+
             <div class="recent-advicer">
                 <div class="h2count">
                     <h2 >طلبات إضافة المحاصيل
-                        @{int count=0;
+                        @{int counts=0;
                         @foreach (var item in Model)
                         {
                          if (item.state==1)
                         {
-                            count++;   
+                            counts++;   
                         }   
                         }
                         }
-                        <span >@count</span>
+                        <span >@counts</span>
                     </h2>
                 </div>
                 <div class="contain">
@@ -87,15 +140,18 @@
                         if (item.state==1)
                     {
                       
+                        URI uRI = new URI();
+                        Path = uRI.url +item.image_path;
                         DateTime date = DateTime.Now;
-                       const string DateFormat = "dd/MM/yyyy hh:mm:ss";
                        var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
                        var dates= epoch.AddMilliseconds(item.created_at);
                        var crop_date= date-dates;
 
-                      <div class="chat">
-                        <div class="profile-img">
-                            <img src="../images/pro3.jpg" alt="">
+                        <div class="chat">
+                            <div class="profile-img">
+                                
+                            <img src="@Url.Content(Path)" alt="">
+                                
                         </div>
                         <div class="right">
                             <div class="chat-info">
@@ -107,7 +163,7 @@
                             </div>
                             <div class="activatebtn">
                                <div>
-                                    <button class="activate">@Html.ActionLink("قبول","Editcrop",new{id=@item._id})</button>
+                                    <button class="activate">@Html.ActionLink("قبول","Acceptcrops",new{id=@item._id})</button>
                                     <button class="refuse">@Html.ActionLink("حذف","DeleteCrop",new{id=@item._id})</button>
                                 </div>
                             </div>

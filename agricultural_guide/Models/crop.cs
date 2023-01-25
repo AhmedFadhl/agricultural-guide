@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 
+
 namespace agricultural_guide.Models
 {
     public class crop
@@ -22,7 +23,7 @@ namespace agricultural_guide.Models
 
 
 
-     
-        }
+
+    }
     
 }

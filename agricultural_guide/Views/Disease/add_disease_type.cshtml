@@ -1,0 +1,41 @@
+﻿  @model agricultural_guide.Models.disease_type
+
+   <main>
+
+            <div class="">
+                <h2> أنواع المحاصيل </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b> نوع آفة جديده</b></h2>
+                    <form asp-action="add_disease_type">
+                       <div>
+                        <div >
+                            <span>أسم نوع المحصول</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                       
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=discription placeholder="" >
+                        </div>
+                        </div>
+                        <div>
+
+                            <input class="submit" value="Save" type="submit">
+                            <input class="cancel" value="Cancel" type="submit">
+                        </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+        <!--right side strart-->
+     

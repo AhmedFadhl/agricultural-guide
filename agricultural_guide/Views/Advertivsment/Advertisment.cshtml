@@ -1,0 +1,99 @@
+﻿@model IEnumerable<agricultural_guide.Models.Advertisments>
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>الأعلانات</b> </h2>
+                <button><a asp-action="Advertivsment" asp-controller="Crop">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أسم المعلن </th>
+                            <th>  وصف الأعلان</th>
+                            <th> رابط الأعلان</th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                            {
+                    
+                        
+                            URI url = new URI();
+                            var path = url.url + item.image_path;
+                        
+                        <tr onclick="showDetiels('@item.advertiser','@item.ads','@item.ad_link','@item.description','@path')">
+                           
+                            <td>@item.advertiser</td>
+                            <td>@item.ads</td>
+                            <td>@item.ad_link</td>
+                            <td>@item.description</td>
+
+                       
+
+                           </tr>
+                           
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+           
+            <!--top end-->
+         
+            <!--chat start-->
+
+              <div class="recent-advicer">
+                <div class="h2count">   
+                    <h2 >مواصفات المحصول
+                    </h2>
+                </div>
+                <div class="deties_container">
+                <div class="contain">
+                    <div class="request_crop">
+                        <div>
+
+                            <img id="detiels_image" src="../images/farm.jfif" alt="">
+                            
+                          
+                                <div class="crop-info">
+                                    <h3>أسم المعلن :</h3>
+                                    <h3 id="name_crop"></h3>
+                                    <h3> وصف الأعلان :</h3>
+                                    <h3 id="type"> </h3>
+                                    <h3> رابط الأعلان :</h3>
+                                    <h3 id="type_crop"></h3>
+                                    
+                                </div>
+                                <div class="desc">
+                                    <h3 > الوصف :</h3>
+                                    <p id="description"> </p   >
+                                </div>
+                    </div>
+                        
+                        
+                    </div>
+                    
+                    </div>
+                    
+                </div> 
+                </div>
+
+
+
+          
+            </div>

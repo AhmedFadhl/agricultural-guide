@@ -452,7 +452,7 @@ main .devicer_rating  table{
 
 .management{
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     margin-top:0.8rem;
 }
 main .devicer_rating table:hover {
@@ -582,16 +582,32 @@ main  table tbody td{
 main table tbody tr:last-child td{
     border: none;
 }
+.detiels {
+    color: #2196F3;
+    margin-top: 1rem;
+    cursor:pointer;
+}
 .edit a {
     color: #2196F3;
 }
 .delet a{
     color: red;
 }
+.edit a img{
+
+    width:20px;
+    height:20px;
+}
+
+.delet a img {
+    width: 30px;
+    height: 30px;
+}
 .profile_photo img{
     border-radius: 60%;
     width: 50px;
     height: 50px;
+    border:1px solid black;
     
 }
 
@@ -797,6 +813,7 @@ header .top .profile{
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    border:1px solid black;
 }
 .right .recent-advicer{
     margin-top: 2rem;
@@ -837,21 +854,25 @@ header .top .profile{
 }
 
 .request_crop img {
-    border-radius:60%;
+    border-radius:50%;
+    width:100px;
+    height:100px;
+    margin-right:5rem;
 }
 
 
-.right .recent-advicer .request .chat{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    margin-right: 0.5rem;
-    padding: 0.5rem var(--card-padding);
-    border-radius: var(--border-radius-3);
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
-}
+
+    .right .recent-advicer .request .chat {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        margin-right: 0.5rem;
+        padding: 0.5rem var(--card-padding);
+        border-radius: var(--border-radius-3);
+        box-shadow: var(--box-shadow);
+        transition: all 300ms ease;
+    }
 .right  .crops{
     display: flex;
     align-items: center;
@@ -948,9 +969,65 @@ header .top .profile{
 
 
 
-  
+
+
+.crop-info {
+    display: grid;
+    grid-template-columns: 6rem 11rem;
+    width: 100%;
+    margin-top:1rem;
+}
+
+.request_crop h3 {
+    font-size: medium;
+    margin-bottom: 0.2rem;
+}
+
+.request_crop p {
+    font-size: medium;
+    margin-bottom: 0.2rem;
+}
+
+.desc h3{
+    margin-right:7rem;
+}
+.deties_container{
+}
+
+
+.selectcrop {
+    background-color: var(--color-white);
+    margin: 1.6rem 0 0rem 0;
+    width: 57vw;
+    height: 6.6rem;
+    padding: 0.7rem 0.5rem 1.5rem 0.5rem;
+    border-radius: var(--border-radius-3);
+}
+
+.crop_image {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+.crop_image a {
+    margin-right:1rem;
+}
+
+    .crop_image img {
+        border: 1px solid black;
+        border-radius: 50%;
+        float: right;
+        width: 60px;
+        height: 60px;
+        margin-left: 0.3rem;
+        padding:0.3rem;
+    }
+    
+
+
+
 /*     small laptop and large tablets    */
-@media screen and  (max-width:1000px) {
+@media screen and (max-width:1200px) {
     .container{
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
@@ -1158,11 +1235,13 @@ header .top .profile{
         height: 30px;
         width: 60px;
     }
-    
+
+    .selectcrop{
+        width:90vw;
+    }
+
 
     aside .sidebar .main_menu {
-
-   
     }
     aside .sidebar .main_menu a{
        

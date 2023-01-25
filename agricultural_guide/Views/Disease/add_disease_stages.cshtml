@@ -1,0 +1,50 @@
+﻿  @model agricultural_guide.Models.disease_stages
+
+   <main>
+
+            <div class="">
+                <h2> الآفات </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>مرلحة مرض جديده</b></h2>
+                    <form enctype="multipart/form-data" asp-action="add_disease_stages">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المرحلة</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                       
+                          <div >
+                            <span >أسم المرض </span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.disease_id, Model.diseases, "أختر أسم المرض")
+
+                            </div>
+                            </div> 
+                            <div >
+                            <span >نوع المحاصيل</span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.crop_id, Model.crops, "أختر أسم المحصول")
+
+                            </div>
+                            </div> 
+                             <div >
+                            <span> الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                      </div>
+                    
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+        </main>
+
+       

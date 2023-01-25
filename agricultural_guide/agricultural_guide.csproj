@@ -11,7 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="bootstrap.chosen" Version="1.0.0" />
+    <PackageReference Include="chosen" Version="1.2.0" />
+    <PackageReference Include="Firebase.Auth" Version="1.0.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="4.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

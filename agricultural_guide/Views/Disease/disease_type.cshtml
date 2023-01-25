@@ -1,0 +1,45 @@
+﻿      
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>انواع الآفات</b> </h2>
+                <button><a asp-action="add_disease_type">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أٍسم النوع </th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                            {
+                   
+                        <tr>
+                            <td>@item.name</td>
+                            <td>@item.discription</td>
+                            <td>   
+                             <span class="edit">   @Html.ActionLink("تعديل","Edit_disease_type",new{id=@item._id})</span>
+                             <span class="delet">  @Html.ActionLink("حذف","Delete_disease_type",new{id=@item._id})</span>
+                            </td>
+                        </tr>
+                        
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+       

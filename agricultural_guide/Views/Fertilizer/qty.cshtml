@@ -1,0 +1,155 @@
+﻿@using Newtonsoft.Json
+@model agricultural_guide.ViewModels.qtyvm
+<main>
+
+    @{
+        URI ur = new URI();
+        var path = "";
+        var crop_name = "";
+        List<qty> qties = new List<qty>();
+        List<string> aa = new List<string>();
+        List<string> a = new List<string>();
+
+                foreach (var s in Model.crop)
+                {
+                    if (Model.crop_id==s._id)
+                    {
+                        crop_name = s.name;
+                        path = ur.url + s.image_path;
+                    }
+                }
+          }
+            <div class="pestpage">
+ 
+                <h2>إدارة <b>كميات السماد </b> </h2>
+                <button><a asp-action="add_qty" asp-controller="Fertilizer">إضافة</a></button>
+
+            </div>
+
+            <div class="selectcrop">
+                <div class="crop_image">
+                    @foreach (var item in Model.crop)
+                    {
+                        if (item.state !=1)
+                        {    
+                        URI uri =new URI();
+                        var crop_path = uri.url + @item.image_path;
+                         <a href="@Url.Action("qty", "Fertilizer",new{id=@item._id})" title=@item.name class="links">
+                         <img alt=@item.name src="@Url.Content(@crop_path)"> </a>                        
+                        }
+                    }
+                   
+                </div>
+              
+            </div>                
+
+            <div  class="pests_fild">
+                <div class="pest">
+                    <div class="crop_top">
+                        <img id="detiels_image" src="@path" alt="">
+                        <h2 id="name_crop"> </h2>
+                    </div>
+                    <h2 id="stage"></h2>
+                    <div class="line"></div>
+                    <div class="stage_container">
+                       <div class="qty_stage">
+                        <div class="qty_top">
+                            <h2 >نوع السماد</h2>
+                            <h2 id="fertilizer_type" class="right_fer"></h2>
+                        </div>
+                        <h2>الكمية</h2>
+                            <table class="table_toggler">
+                               <tr>  
+                                    <th id='fertilizer0'> </th>
+                                    <th id='fertilizer1'> </th>
+                                    <th id='fertilizer2'> </th>
+                                   
+                               </tr>
+                                 
+                                <tr>
+                                    <td id="qty0"></td>
+                                    <td id="qty1"></td>
+                                    <td id="qty2"></td>
+                                   
+                                </tr>
+                            </table>
+                       </div>
+                  </div>
+              
+                </div>
+               
+            </div>
+            
+        </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+         
+            <!--top end-->
+         
+            <!--chat start-->
+            <div class="recent-advicer">
+                <div class="h2count">
+                    <h2 > 
+                        مراحل التسميد 
+                    </h2>
+                </div>
+                <div style="margin-top:5rem;" class="contain">
+
+
+                    @foreach (var item in Model.fertilizer_Stage)
+                    {
+                        qty qty = new qty();
+                        foreach (var sss in item)
+                {
+                    List<string> fers = new List<string>();
+                    List<string> quantities = new List<string>();
+                    foreach (var ss in sss)
+                               {
+                        qties.Add(ss);         
+                        qty = ss;
+                        fers.Add( ss.fertilizer_id);
+                        quantities.Add( ss.QTY.ToString());
+                    }
+                    a = fers;
+                    aa = quantities;
+                }
+                int[] tes = { 1, 2, 3, 4, 5 };
+                <div onclick="showDetiels2('@crop_name','@item.Key','@JsonConvert.SerializeObject(a)','@qty.fertilizer_type_id','@path','@JsonConvert.SerializeObject(aa)')"  class="stage">
+                            <span></span>
+                           <h2>@item.Key</h2>
+                     </div>
+                    } 
+                   
+                    @*
+           @for (var item= 0; item < Model.qty.Count;item++)
+           
+            {
+              for (var i = 0; i < Model.qty.Count; i++)
+              {
+                  if (i==0 &&item==0)
+                  {
+                      <div onclick="showDetiels2('@crop_name','@Model.qty[item].stages_fertilizer_id','@Model.qty[item].fertilizer_id','@Model.qty[item].fertilizer_type_id','@path','@Model.qty[item].QTY')" class="stage">
+                            <span></span>
+                           <h2>@Model.qty[item].stages_fertilizer_id</h2>
+                    </div>
+                  }
+               
+                if (Model.qty[item].stages_fertilizer_id!=Model.qty[i].stages_fertilizer_id)
+                {
+                    
+                  <div onclick="showDetiels2('@crop_name','@Model.qty[item].stages_fertilizer_id','@Model.qty[item].fertilizer_id','@Model.qty[item].fertilizer_type_id','@path','@Model.qty[item].QTY')" class="stage">
+                            <span></span>
+                           <h2>@Model.qty[item].stages_fertilizer_id</h2>
+                    </div>
+              
+              }
+                }
+            }
+            *@
+                
+                </div> 
+                  
+            </div>
+            </div>

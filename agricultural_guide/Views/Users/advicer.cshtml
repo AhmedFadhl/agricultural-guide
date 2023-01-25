@@ -1,0 +1,167 @@
+﻿@model IEnumerable<agricultural_guide.Models.users>
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>المرشدين</b> </h2>
+                <button><a asp-action="add_adviser" asp-controller="Users">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أسم المرشدين </th>
+                            <th> رقم الهاتف </th>
+                            <th> التخصص</th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                            {
+                    @if (item.usertype == 3)
+                    {
+                        
+                            URI url = new URI();
+                            var path = url.url + item.image_path;
+                        
+                        <tr onclick="showDetiels('@item.name','@item.usertype','@item.phone','@item.specialize','@path')">
+                           
+                            <td>@item.name</td>
+                            <td>@item.phone</td>
+                            <td>@item.specialize</td>
+                            <td class="management">
+                             <span class="edit">@Html.ActionLink("تعديل","Edit_user",new{id=@item._id})</span>
+                             <span class="delet">@Html.ActionLink("حذف","Delete_user",new{id=@item._id})</span>
+
+                            </td>
+                        </tr>
+                        }
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+           
+            <!--top end-->
+         
+            <!--chat start-->
+
+              <div class="recent-advicer">
+                <div class="h2count">   
+                    <h2 >مواصفات المحصول
+                    </h2>
+                </div>
+                <div class="deties_container">
+                <div class="contain">
+                    <div class="request_crop">
+                        <div>
+
+                            <img id="detiels_image" src="../images/farm.jfif" alt="">
+                            
+                          
+                                <div class="crop-info">
+                                    <h3>أسم المرشد :</h3>
+                                    <h3 id="name_crop"></h3>
+                                    <h3>رقم الهاتف :</h3>
+                                    <h3 id="type"> </h3>
+                                    <h3>التخصص :</h3>
+                                    <h3 id="type_crop"></h3>
+                                    
+                                </div>
+                                <div class="desc">
+                                    <h3 > نبذة عن :</h3>
+                                    <p id="description"> </p   >
+                                </div>
+                            
+                      
+                     
+                    </div>
+                        
+                        
+                    </div>
+                    <div class="bottombtn">    
+                        <button><span class="see_crop" > تعديل</span></button>
+                    </div>
+                    </div>
+                    
+                </div> 
+                </div>
+
+
+
+            <div class="recent-advicer">
+                <div class="h2count">
+                    <h2 >طلبات إضافة المرشدين
+                        @{int counts=0;
+                        @foreach (var item in Model)
+                        {
+                         if (item.state==1 && item.usertype==3)
+                        {
+                            counts++;   
+                        }   
+                        }
+                        }
+                        <span >@counts</span>
+                    </h2>
+                </div>
+                <div class="contain">
+                      <div class="request">
+                       
+                        @foreach (var item in Model)
+                        {
+                        if (item.state==1 && item.usertype==3)
+                    {
+                      
+                        URI uRI = new URI();
+                        Path = uRI.url +item.image_path;
+                        DateTime date = DateTime.Now;
+                       var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+                       var dates= epoch.AddMilliseconds(item.created_at);
+                       var crop_date= date-dates;
+
+                        <div class="chat">
+                            <div class="profile-img">
+                                
+                            <img src="@Url.Content(Path)" alt="">
+                                
+                        </div>
+                        <div class="right">
+                            <div class="chat-info">
+                                <h3>@item.name</h3>
+                                <div class="message">
+                                    <p>@item.specialize </p>
+                                </div>
+                                <small class="text-muted"> @crop_date</small>
+                            </div>
+                            <div class="activatebtn">
+                               <div>
+                                    <button class="activate">@Html.ActionLink("قبول","Acceptaderiser",new{id=@item._id})</button>
+                                    <button class="refuse">@Html.ActionLink("حذف","Delete_user",new{id=@item._id})</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        }
+                        }
+                </div> 
+               
+                  
+            </div>
+            </div>
+            </div>

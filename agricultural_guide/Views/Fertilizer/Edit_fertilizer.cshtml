@@ -1,0 +1,40 @@
+﻿  @model agricultural_guide.Models.fertilizer
+
+   <main>
+
+            <div class="">
+                <h2> الأسمدة </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>تعديل <b>سماد </b></h2>
+                    <form  asp-action="Edit_fertilizer">
+                        <div>
+                    
+                        <div >
+                            <span>أسم السماد</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                    </div>
+                    </div>
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

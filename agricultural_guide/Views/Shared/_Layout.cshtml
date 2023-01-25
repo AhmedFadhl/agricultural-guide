@@ -88,9 +88,9 @@
                     </div>
                         <ul>
                             <li><a href="pages/add_advicer.html">الأعدادات الرئيسية</a></li>
-                            <li><a asp-action="fertilizer" asp-controller="Sitting"> الأسمدة</a></li>
-                            <li><a asp-action="crop_type" asp-controller="Sitting" > أنواع المحاصيل</a></li>
-                            <li><a asp-action="crop_type" asp-controller="Sitting" >  تركيبة السماد</a></li>
+                            <li><a asp-action="fertilizer" asp-controller="Fertilizer"> الأسمدة</a></li>
+                            <li><a asp-action="crop_type" asp-controller="crop" > أنواع المحاصيل</a></li>
+                            <li><a asp-action="fer_type" asp-controller="Fertilizer" >  تركيبة السماد</a></li>
 
 
                             
@@ -108,9 +108,9 @@
                     </div>
                         <ul>
                             <li><a asp-action="crop" asp-controller="Crop">عرض المحاصيل</a></li>
-                            <li><a href="pages/add_fer_stage.html"> مرحلة تسميد</a></li>
+                            <li><a asp-action="fertilizer_stage" asp-controller="Fertilizer"> مرحلة تسميد</a></li>
                             <li><a asp-action="addcrop" asp-controller="Crop">إضافة المحاصيل</a></li>
-                            <li><a href="pages/add_fer_qty.html"> كمية تسميد</a></li>
+                            <li><a asp-action="qty" asp-controller="Fertilizer"> كمية تسميد</a></li>
                             
                         </ul>
                     </div>
@@ -125,10 +125,10 @@
                             <span>></span>
                     </div>
                         <ul>
-                            <li><a href="pages/pests.html">عرض الآفات</a></li>
-                            <li><a href="pages/addpest.html">إضافة آفة أو مرض</a></li>
-                            <li><a href="pages/add_pest_type.html">إضافة نوع الآفة</a></li> 
-                            <li><a href="pages/add_stage.html">إضافة مرحلة لمرض</a></li>
+                            <li><a asp-action="disease" asp-controller="Disease">عرض الآفات</a></li>
+                            <li><a asp-action="adddisease" asp-controller="Disease">إضافة آفة أو مرض</a></li>
+                            <li><a asp-action="disease_type" asp-controller="Disease" > نوع الآفة</a></li> 
+                            <li><a asp-action="disease_stages" asp-controller="Disease" > مرحلة لمرض</a></li>
                            
                         </ul>
                     </div>
@@ -148,7 +148,7 @@
                           <div >
                           
                               <div class="main_menu">
-                                  <a href="pages/advicer.html">
+                                  <a asp-action="add_adviser" asp-controller="Users">
                                       <img src="~/images/icons/management.png" alt="">
                                       <h3>المرشدين</h3>
                                       </a>
@@ -199,7 +199,7 @@
                     <div >
                     
                         <div class="main_menu">
-                            <a href="#">
+                            <a asp-action="Login" asp-controller="Login">
                                 <img src="~/images/icons/icons8-logout-50.png" alt="">
                                 <h3>تسجيل الخروج</h3>
                                 </a>
@@ -210,14 +210,16 @@
               
                 
              </div>
-            </ul>
         </aside>
         <!--sidebae end-->
         <!--main start-->
 @RenderBody()
 
 </div>
+ <script  asp-append-version="true" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="~/js/dash.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
 </body>
 </html>
 

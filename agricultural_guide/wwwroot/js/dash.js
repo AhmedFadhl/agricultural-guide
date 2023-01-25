@@ -13,6 +13,8 @@ const sub_menu=document.querySelector(".sub_menu");
 
 
 
+
+
 menu_btn.addEventListener('click',()=>{
     sidemenu.style.display='block';
 })
@@ -39,6 +41,7 @@ table_toggler.addEventListener('click',()=>{
     tables.style.display='flex';
     cards.style.display='none';
 })
+
 
 
 
@@ -150,6 +153,46 @@ function lastchat(){
 })();
 
 
+
 function backtocrop() {
     
 }
+
+
+
+function showDetiels(name_crop, type, type_crop, description, image_path) {
+    document.getElementById("name_crop").innerHTML = name_crop;
+    document.getElementById("type").innerHTML = type;
+    document.getElementById("type_crop").innerHTML = type_crop;
+    document.getElementById("description").innerHTML = description;
+    var image = document.getElementById("detiels_image");
+    image.src = image_path;
+
+}
+
+
+function showDetiels2(crop_name, stage, fertilizer, fertilizer_type, image_path, qty,) {
+    document.getElementById("name_crop").innerHTML = crop_name;
+    document.getElementById("stage").innerHTML = stage;
+    document.getElementById("fertilizer_type").innerHTML = fertilizer_type;
+    var image = document.getElementById("detiels_image");
+    image.src = image_path;
+
+    fertilizer.forEach(
+
+        document.getElementById("fertilizer0" ).innerHTML = fertilizer,
+
+         document.getElementById("qty0").innerHTML = qty + ' KG',
+    );
+
+    
+       //document.getElementById("fertilizer0").innerHTML = fertilizer;
+       //document.getElementById("fertilizer1").innerHTML = fertilizer;
+       //document.getElementById("fertilizer2").innerHTML = fertilizer;
+       //document.getElementById("qty1").innerHTML = qty + ' KG';
+       //document.getElementById("qty2").innerHTML = qty + ' KG';
+}
+
+
+
+

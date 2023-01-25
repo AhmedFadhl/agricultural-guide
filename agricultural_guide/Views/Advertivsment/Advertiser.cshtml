@@ -1,0 +1,106 @@
+﻿@model IEnumerable<agricultural_guide.Models.Advertisers>
+ <main>
+      <div class="pestpage">
+                <h2>إدارة <b>المحاصيل</b> </h2>
+                <button><a asp-action="addAdvertiser" asp-controller="Advertivsment">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أسم المعلن </th>
+                            <th>  رقم الهاتف</th>
+                            <th>رابط التواصل </th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                             {
+                        
+                            URI url = new URI();
+                            var path = url.url + item.image_path;
+                        
+                        <tr onclick="showDetiels('@item.name','@item.contact_link','@item.phone','@item.description','@path')">
+                           
+                            <td>@item.name</td>
+
+                          
+                            <td>@item.phone</td>
+                            <td>@item.contact_link</td>
+                            <td>@item.description</td>
+                            <td class="management">
+                             <span class="edit">@Html.ActionLink("تعديل","EditAdvertiser",new{id=@item._id})</span>
+                             <span class="delet">@Html.ActionLink("حذف","DeleteAdvertiser",new{id=@item._id})</span>
+
+                            </td>
+                        </tr>
+                        }
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+           
+            <!--top end-->
+         
+            <!--chat start-->
+
+              <div class="recent-advicer">
+                <div class="h2count">   
+                    <h2 >مواصفات المحصول
+                    </h2>
+                </div>
+                <div class="deties_container">
+                <div class="contain">
+                    <div class="request_crop">
+                        <div>
+
+                            <img id="detiels_image" src="../images/farm.jfif" alt="">
+                            
+                          
+                                <div class="crop-info">
+                                    <h3>أسم المعلن :</h3>
+                                    <h3 id="name_crop"></h3>
+                                    <h3> رقم المعلن :</h3>
+                                    <h3 id="type"> </h3>
+                                    <h3> رابط التواصل :</h3>
+                                    <h3 id="type_crop"></h3>
+                                    
+                                </div>
+                                <div class="desc">
+                                    <h3 > معلوات اضافية :</h3>
+                                    <p id="description"> </p   >
+                                </div>
+                            
+                      
+                     
+                    </div>
+                        
+                        
+                    </div>
+                    <div class="bottombtn">    
+                        <button><span class="see_crop" > تعديل</span></button>
+                    </div>
+                    </div>
+                    
+                </div> 
+                </div>
+
+
+
+            </div>

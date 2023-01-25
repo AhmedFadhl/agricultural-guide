@@ -1,0 +1,122 @@
+﻿@using Newtonsoft.Json
+@model agricultural_guide.ViewModels.disease_vm
+<main>
+
+    @{
+        URI ur = new URI();
+        var path = "";
+        var crop_name = "";
+        var name = "";
+        foreach (var item in Model.clutrication_Stages)
+        {
+            name = item.name;
+        }
+
+                foreach (var s in Model.crops)
+                {
+                    if (Model.crop_id==s._id)
+                    {
+                        crop_name = s.name;
+                        path = ur.url + s.image_path;
+                    }
+                }
+          }
+            <div class="pestpage">
+ 
+                <h2>إدارة <b>كميات السماد </b> </h2>
+                <button><a asp-action="add_disease_stages" asp-controller="Disease">إضافة</a></button>
+
+            </div>
+
+            <div class="selectcrop">
+                <div class="crop_image">
+                    @foreach (var item in Model.crops)
+                    {
+                        if (item.state !=1)
+                        {    
+                        URI uri =new URI();
+                        var crop_path = uri.url + @item.image_path;
+                         <a href="@Url.Action("disease_stages", "Disease",new{id=@item._id})" title=@item.name class="links">
+                         <img alt=@item.name src="@Url.Content(@crop_path)"> </a>                        
+                        }
+                    }
+                   
+                </div>
+              
+            </div>                
+
+             <div class="pests_fild">
+                <div class="pest">
+                     <div class="crop_top">
+                        <img id="detiels_image" src="@path" alt="">
+                        <h2 id="name_crop"> </h2>
+                    </div>
+                   
+                        
+                    <h2 id="stage">@name</h2>
+                    
+                    <div class="line"></div>
+                    <div class="stage_container">
+                        <div class="desc_container">
+                            @foreach (var item in Model.clutrication_Stages)
+                            {  
+                            foreach (var items in Model.diseases)
+                            {
+                        if (items._id ==item.disease_id )
+                        {
+                                var image = ur.url + items.image_path;
+                                <div class="desc">
+                            <img src="@image" alt="">
+                            <h4>@items.dis_type_id</h4>
+                            <p class="pest_p"> @items.name</p>
+                        </div>
+                        }
+                            }
+                            }
+                    </div>
+                       
+                  </div>
+              
+                </div>
+               
+            </div>
+            
+        </main>
+        <!--main end-->
+        <!--right side strart-->
+        <div class="right">
+            <!--top start-->
+         
+            <!--top end-->
+         
+            <!--chat start-->
+            <div class="recent-advicer">
+                <div class="h2count">
+                    <h2 > 
+                        مراحل الأمراض 
+                    </h2>
+                </div>
+                <div style="margin-top:5rem;" class="contain">
+
+
+                    @foreach (var item in Model.clutrication_Stage)
+                    {
+                        
+                        foreach (var ss in item)
+                        {
+                            
+                        } 
+                             <a href="@Url.Action("disease_stages", "Disease",new{id=@Model.crop_id,name=@item.Key})" title=@item.Key class="links">
+                                   <div class="stage">
+                                    <span></span>
+                                    <h2>@item.Key</h2>
+                                 </div>
+                             </a>
+                    }
+                   
+                 
+                
+                </div> 
+                  
+            </div>
+            </div>

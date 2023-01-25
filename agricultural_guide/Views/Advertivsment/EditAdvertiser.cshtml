@@ -1,0 +1,50 @@
+﻿
+  @model agricultural_guide.Models.Advertisers
+
+   <main>
+
+            <div class="">
+                <h2> المعلنين </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b> معلن</b></h2>
+                    <form enctype="multipart/form-data" asp-action="EditAdvertiser">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المعلن</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        
+                        <div >
+                            <span>رقم المعلن</span>
+                            <input class="fild"  asp-for=phone placeholder="" >
+                        </div>
+                        <div >
+                            <span>رابط المعلن</span>
+                            <input class="fild"  asp-for=contact_link placeholder="" >
+                    
+                        </div>
+                         <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="advertiser_image"   asp-for=advertiser_image placeholder="" >
+                        </div>
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+
+                          
+                        </div>
+                      
+                    
+                     <div>
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </form>
+            </div>
+            </div>
+        </main>
+       

@@ -60,9 +60,12 @@ namespace agricultural_guide.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult adddisease(disease home)
         {
-            var list = home.prevention[0].Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            var lists = home.symptoms[0].Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var list = home.prevention[0].Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var lists = home.symptoms[0].Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
+
+            home.prevention = list;
+            home.symptoms = lists;
             string full_path = Path.Combine(uri.url, "disease");
 
             using (var httpClient = new HttpClient())
@@ -75,18 +78,26 @@ namespace agricultural_guide.Controllers
                 ByteArrayContent bytes = new ByteArrayContent(data);
 
 
-
                 MultipartFormDataContent multiContent = new MultipartFormDataContent();
                 StringContent content = new StringContent(JsonConvert.SerializeObject(home), Encoding.UTF8, "application/json");
                 multiContent.Add(bytes, "Disease_image", home.disease_image.FileName);
                 multiContent.Add(new StringContent(home.name), "name");
-                multiContent.Add(new StringContent(home.anti_organic), "antiorganic");
-                multiContent.Add(new StringContent(home.chemical_control), "chemicalcontrol");
+                multiContent.Add(new StringContent(home.antiorganic), "antiorganic");
+                multiContent.Add(new StringContent(home.chemicalcontrol), "chemicalcontrol");
                 multiContent.Add(new StringContent(home.dis_type_id), "dis_type_id");
-                multiContent.Add(new StringContent(JsonConvert.SerializeObject(list), Encoding.UTF8, "application/json"), "prevention");
+
+                for(int i=0; i < list.Length; i++)
+                {
+                multiContent.Add(new StringContent(list[i]), "prevention");
+                }
+
+                for (int i = 0; i < lists.Length; i++)
+                {
+                    multiContent.Add(new StringContent(lists[i]), "symptoms");
+                }
+
                 multiContent.Add(new StringContent(home.reason), "reason");
                 multiContent.Add(new StringContent(home.recommendations), "recommendations");
-                multiContent.Add(new StringContent(JsonConvert.SerializeObject(lists), Encoding.UTF8, "application/json"), "symptoms");
                 using (var response = httpClient.PostAsync(full_path, multiContent))
                 {
                     var apiResponse = response.Result.Content.ReadAsStringAsync();
@@ -187,8 +198,8 @@ namespace agricultural_guide.Controllers
                     multiContent.Add(bytes, "disease_image", disease.disease_image.FileName);
                 }
                 multiContent.Add(new StringContent(disease.name), "name");
-                multiContent.Add(new StringContent(disease.anti_organic), "anti_organic");
-                multiContent.Add(new StringContent(disease.chemical_control), "chemical_control");
+                multiContent.Add(new StringContent(disease.antiorganic), "anti_organic");
+                multiContent.Add(new StringContent(disease.chemicalcontrol), "chemical_control");
                 multiContent.Add(new StringContent(disease.dis_type_id), "dis_type_id");
                 multiContent.Add(new StringContent(JsonConvert.SerializeObject(list)), "prevention");
                 multiContent.Add(new StringContent(disease.reason), "reason");

@@ -1,15 +1,15 @@
-﻿@model IEnumerable<agricultural_guide.Models.disease> 
-<main>
+﻿@model IEnumerable<agricultural_guide.Models.advice>
+ <main>
       <div class="pestpage">
-                <h2>إدارة <b>الآفات</b> </h2>
-                <button><a asp-action="adddisease" asp-controller="Disease">إضافة</a></button>
+                <h2>إدارة <b>النصائح</b> </h2>
+                <button><a asp-action="addadvice" asp-controller="Advice">إضافة</a></button>
               </div>
             <div class="devicer_manage">
                 <table>
                     <thead>
                         <tr>
-                            <th>أسم الآفة </th>
-                            <th>   نوع الآفة</th>
+                            <th>أسم النصيحه </th>
+                            <th>الوصف</th>
                             <th>إدارة</th>
                             <th></th>
                         </tr>
@@ -18,34 +18,29 @@
 
                             @foreach (var item in Model)
                             {
-                  
-                        
-                            URI url = new URI();
-                            var path = url.url + item.image_path;
-                        
-                        <tr>
+                   
+
+                        <tr >
                            
                             <td>@item.name</td>
-                            <td>@item.dis_type_id</td>
 
-
+                            <td>@item.description</td>
                             <td class="management">
-                             <span class="edit">@Html.ActionLink("تعديل","Editdisease",new{id=@item._id})</span>
-                             <span class="delet">@Html.ActionLink("حذف","DeleteDisease",new{id=@item._id})</span>
+                             <span class="edit"><a href="@Url.Action("Editadvice", "Advice",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Deleteadvice", "Advice",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/delete.png"> </a></span>
 
                             </td>
                         </tr>
-                        
-                            }
+                        }
+                            
                             
                         
                       
                     </tbody>
                 </table>
-             <!--
 
-                 <a href="#"> رؤية المزيد</a>
-                -->
             </div>
             </main>
         <!--main end-->
@@ -59,7 +54,7 @@
 
               <div class="recent-advicer">
                 <div class="h2count">   
-                    <h2 >مواصفات المحصول
+                    <h2 >النصيحه 
                     </h2>
                 </div>
                 <div class="deties_container">
@@ -71,9 +66,9 @@
                             
                           
                                 <div class="crop-info">
-                                    <h3>أسم المحصول :</h3>
+                                    <h3>أسم النصيحه :</h3>
                                     <h3 id="name_crop"></h3>
-                                    <h3>كيفية التسميد :</h3>
+                                    <h3> النصيحه :</h3>
                                     <h3 id="type"> </h3>
                                     <h3>نوع المحصول :</h3>
                                     <h3 id="type_crop"></h3>
@@ -100,5 +95,5 @@
 
 
 
-           
+          
             </div>

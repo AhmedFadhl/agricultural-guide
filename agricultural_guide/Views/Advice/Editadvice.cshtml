@@ -1,0 +1,52 @@
+﻿ @model agricultural_guide.Models.advice
+
+   <main>
+
+            <div class="">
+                <h2> النصائح </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b> نصيحة جديده</b></h2>
+                    <form enctype="multipart/form-data" asp-action="Editadvice">
+                        <div>
+                    
+                        <div >
+                            <span>أسم النصيحة</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        <div>
+                            <span> مهم</span>
+                            <textarea class="fild"   asp-for=important placeholder="" >
+                            </textarea>
+                        </div>
+                        <div>
+                            <span> الكيفية</span>
+                            <textarea class="fild"   asp-for=How placeholder="" >
+                            </textarea>
+                        </div>
+                        
+                         
+                             <div >
+                            <span> الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                          <div>
+                            <span>صورة المرض</span>
+                            <input class="fild" multiple type="file" name="advice_image"   asp-for=advice_image placeholder="" >
+                        </div>
+                      </div>
+                    
+                      <div>
+
+                     <div class="ssubmitbtn">
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
+                    </form>
+            </div>
+            </div>
+        </main>
+
+       

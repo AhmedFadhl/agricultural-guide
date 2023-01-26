@@ -15,7 +15,7 @@ namespace agricultural_guide.Controllers
 
         public IActionResult crop()
         {
-
+            List<string> tests = new List<string>();
             List<crop> dataList = new List<crop>();
             using (var httpClient = new HttpClient())
             {

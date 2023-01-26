@@ -449,11 +449,22 @@ main .devicer_rating  table{
    
 }
 
+table tr{
+    position:relative;
+    width:100%;
+}
 
-.management{
-    display:flex;
-    justify-content:space-around;
-    margin-top:0.8rem;
+.management {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.8rem;
+    left: 5;
+    top: -11px;
+    position: absolute;
+}
+.management .edit {
+    margin-top:0.4rem;
+    margin-left:0.6rem;
 }
 main .devicer_rating table:hover {
     box-shadow: none;

@@ -3,7 +3,7 @@
    <main>
 
             <div class="">
-                <h2> أنواع المحاصيل </h2>
+                <h2> أنواع الآفات </h2>
             </div>
             <div class="adddev">
                 <div class="addfild">  
@@ -11,7 +11,7 @@
                     <form asp-action="add_disease_type">
                        <div>
                         <div >
-                            <span>أسم نوع المحصول</span>
+                            <span>أسم نوع الآفة</span>
                             <input class="fild"  asp-for=name placeholder="" >
                         </div>
                        
@@ -20,11 +20,13 @@
                             <input class="fild"  asp-for=discription placeholder="" >
                         </div>
                         </div>
-                        <div>
+                          <div>
 
+                     <div class="ssubmitbtn">
                             <input class="submit" value="Save" type="submit">
-                            <input class="cancel" value="Cancel" type="submit">
-                        </div>
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
                     </form>
             </div>
             </div>

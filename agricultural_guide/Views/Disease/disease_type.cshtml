@@ -22,9 +22,12 @@
                         <tr>
                             <td>@item.name</td>
                             <td>@item.discription</td>
-                            <td>   
-                             <span class="edit">   @Html.ActionLink("تعديل","Edit_disease_type",new{id=@item._id})</span>
-                             <span class="delet">  @Html.ActionLink("حذف","Delete_disease_type",new{id=@item._id})</span>
+                             <td class="management">
+                             <span class="edit"><a href="@Url.Action("Edit_disease_type", "Disease",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Delete_disease_type", "Disease",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/delete.png"> </a></span>
+
                             </td>
                         </tr>
                         

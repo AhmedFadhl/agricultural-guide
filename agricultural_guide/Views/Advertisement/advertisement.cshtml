@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<agricultural_guide.Models.Advertisments>
  <main>
       <div class="pestpage">
-                <h2>إدارة <b>الأعلانات</b> </h2>
-                <button><a asp-action="Advertivsment" asp-controller="Crop">إضافة</a></button>
+                <h2>إدارة <b>المحاصيل</b> </h2>
+                <button><a asp-action="add_ads" asp-controller="Advertisement">إضافة</a></button>
               </div>
             <div class="devicer_manage">
                 <table>
                     <thead>
                         <tr>
+                            <th>الأعلان  </th>
+                            <th> رابط الأعلان </th>
                             <th>أسم المعلن </th>
-                            <th>  وصف الأعلان</th>
-                            <th> رابط الأعلان</th>
                             <th>الوصف</th>
                             <th>إدارة</th>
                             <th></th>
@@ -20,22 +20,28 @@
 
                             @foreach (var item in Model)
                             {
-                    
+                   
                         
                             URI url = new URI();
                             var path = url.url + item.image_path;
-                        
-                        <tr onclick="showDetiels('@item.advertiser','@item.ads','@item.ad_link','@item.description','@path')">
+                         
+
+                        <tr onclick="showDetiels('@item.name','@item.link','@item.id_advertiser','@item.description','@path')">
                            
-                            <td>@item.advertiser</td>
-                            <td>@item.ads</td>
-                            <td>@item.ad_link</td>
+                            <td>@item.name</td>
+
+                            <td>@item.link</td>
+                            <td>@item.id_advertiser</td>
                             <td>@item.description</td>
+                            <td class="management">
+                             <span class="edit"><a href="@Url.Action("Edit_ads", "Advertisement",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Delete_ads", "Advertisement",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/trash.png"> </a></span>
 
-                       
-
-                           </tr>
-                           
+                            </td>
+                        </tr>
+                        }
                             }
                             
                         
@@ -71,11 +77,11 @@
                             
                           
                                 <div class="crop-info">
-                                    <h3>أسم المعلن :</h3>
+                                    <h3>أسم المحصول :</h3>
                                     <h3 id="name_crop"></h3>
-                                    <h3> وصف الأعلان :</h3>
+                                    <h3>كيفية التسميد :</h3>
                                     <h3 id="type"> </h3>
-                                    <h3> رابط الأعلان :</h3>
+                                    <h3>نوع المحصول :</h3>
                                     <h3 id="type_crop"></h3>
                                     
                                 </div>
@@ -83,11 +89,16 @@
                                     <h3 > الوصف :</h3>
                                     <p id="description"> </p   >
                                 </div>
+                            
+                      
+                     
                     </div>
                         
                         
                     </div>
-                    
+                    <div class="bottombtn">    
+                        <button><span class="see_crop" > تعديل</span></button>
+                    </div>
                     </div>
                     
                 </div> 
@@ -95,5 +106,5 @@
 
 
 
-          
+           
             </div>

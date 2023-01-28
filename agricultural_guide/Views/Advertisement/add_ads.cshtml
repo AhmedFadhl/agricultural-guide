@@ -1,0 +1,67 @@
+﻿
+  @model agricultural_guide.Models.Advertisments
+
+   <main>
+
+            <div class="">
+                <h2> الأعلانات </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>إعلان جديد</b></h2>
+                    <form enctype="multipart/form-data" asp-action="add_ads">
+                        <div>
+                    
+                        <div >
+                            <span> الأعلان</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+                        <div >
+                            <span> رابط الأعلان</span>
+                            <input class="fild"  asp-for=link placeholder="" >
+                        </div>
+                         <div >
+                            <span >نوع المحاصيل</span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.id_advertiser, Model.advertisers, "أختر أسم المعلن ")
+
+                       </div>
+                   </div>
+                        
+
+                       
+
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                        
+       
+                        <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="ads_image"   asp-for=ads_image placeholder="" >
+                        </div>
+
+                        </div>
+                      
+                    <div>
+
+                     <div class="ssubmitbtn">
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

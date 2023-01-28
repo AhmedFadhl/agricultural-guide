@@ -184,11 +184,5 @@ namespace agricultural_guide.Controllers
         }
 
 
-
-
-
-
-
-
     }
 }

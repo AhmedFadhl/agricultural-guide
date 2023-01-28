@@ -88,9 +88,7 @@
                     </div>
                         <ul>
                             <li><a href="pages/add_advicer.html">الأعدادات الرئيسية</a></li>
-                            <li><a asp-action="fertilizer" asp-controller="Fertilizer"> الأسمدة</a></li>
-                            <li><a asp-action="crop_type" asp-controller="crop" > أنواع المحاصيل</a></li>
-                            <li><a asp-action="fer_type" asp-controller="Fertilizer" >  تركيبة السماد</a></li>
+                           
 
 
                             
@@ -109,7 +107,9 @@
                         <ul>
                             <li><a asp-action="crop" asp-controller="Crop">عرض المحاصيل</a></li>
                             <li><a asp-action="fertilizer_stage" asp-controller="Fertilizer"> مرحلة تسميد</a></li>
-                            <li><a asp-action="addcrop" asp-controller="Crop">إضافة المحاصيل</a></li>
+                             <li><a asp-action="fertilizer" asp-controller="Fertilizer"> الأسمدة</a></li>
+                            <li><a asp-action="crop_type" asp-controller="crop" > أنواع المحاصيل</a></li>
+                            <li><a asp-action="fer_type" asp-controller="Fertilizer" >  تركيبة السماد</a></li>
                             <li><a asp-action="qty" asp-controller="Fertilizer"> كمية تسميد</a></li>
                             
                         </ul>
@@ -178,12 +178,22 @@
                         </div>
                     <div >
                     
-                        <div class="main_menu">
-                            <a href="pages/advertisments.html">
-                                <img src="~/images/icons/online.png" alt="">
-                                <h3>الأعلانات</h3>
-                                </a>
-                        </div>
+                       <div>
+                    
+                    <div class="main_menu" onclick="sub_menu()">
+                        <!--
+                            <span class="material-symbols-sharp">home</span> --> 
+                            <img src="~/images/icons/icons8-virus-50.png" alt="">
+                            <h3>الأعلانات</h3>
+                            <span>></span>
+                    </div>
+                        <ul>
+                            <li><a asp-action="Advertiser" asp-controller="Advertisement">المعلنين </a></li>
+                            <li><a asp-action="advertisement" asp-controller="Advertisement">الأعلانات </a></li>
+
+                           
+                        </ul>
+                    </div>
                             
                         </div>
                     <div >

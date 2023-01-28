@@ -2,15 +2,15 @@
  <main>
       <div class="pestpage">
                 <h2>إدارة <b>المحاصيل</b> </h2>
-                <button><a asp-action="addAdvertiser" asp-controller="Advertivsment">إضافة</a></button>
+                <button><a asp-action="addadvertiser" asp-controller="Advertisement">إضافة</a></button>
               </div>
             <div class="devicer_manage">
                 <table>
                     <thead>
                         <tr>
-                            <th>أسم المعلن </th>
-                            <th>  رقم الهاتف</th>
-                            <th>رابط التواصل </th>
+                            <th>أسم المحصول </th>
+                            <th> كيفية التسميد</th>
+                            <th>نوع المحصول</th>
                             <th>الوصف</th>
                             <th>إدارة</th>
                             <th></th>
@@ -19,22 +19,21 @@
                     <tbody> 
 
                             @foreach (var item in Model)
-                             {
-                        
-                            URI url = new URI();
-                            var path = url.url + item.image_path;
-                        
-                        <tr onclick="showDetiels('@item.name','@item.contact_link','@item.phone','@item.description','@path')">
+                            {
+
+
+                        <tr onclick="showDetiels('@item.name','@item.phone','@item.email','@item.description','')">
                            
                             <td>@item.name</td>
-
-                          
+                            <td>@item.email</td>
                             <td>@item.phone</td>
-                            <td>@item.contact_link</td>
+
                             <td>@item.description</td>
                             <td class="management">
-                             <span class="edit">@Html.ActionLink("تعديل","EditAdvertiser",new{id=@item._id})</span>
-                             <span class="delet">@Html.ActionLink("حذف","DeleteAdvertiser",new{id=@item._id})</span>
+                             <span class="edit"><a href="@Url.Action("Editadvertiser", "Advertisement",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Deleteadvertiser", "Advertisement",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/trash.png.png"> </a></span>
 
                             </td>
                         </tr>
@@ -74,16 +73,16 @@
                             
                           
                                 <div class="crop-info">
-                                    <h3>أسم المعلن :</h3>
+                                    <h3>أسم المحصول :</h3>
                                     <h3 id="name_crop"></h3>
-                                    <h3> رقم المعلن :</h3>
+                                    <h3>كيفية التسميد :</h3>
                                     <h3 id="type"> </h3>
-                                    <h3> رابط التواصل :</h3>
+                                    <h3>نوع المحصول :</h3>
                                     <h3 id="type_crop"></h3>
                                     
                                 </div>
                                 <div class="desc">
-                                    <h3 > معلوات اضافية :</h3>
+                                    <h3 > الوصف :</h3>
                                     <p id="description"> </p   >
                                 </div>
                             
@@ -103,4 +102,5 @@
 
 
 
+          
             </div>

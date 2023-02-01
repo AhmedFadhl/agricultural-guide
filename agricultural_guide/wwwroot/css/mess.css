@@ -32,25 +32,28 @@
 
 .mess_container {
     width: 55vw;
-    background: var(--color-white);
+    background: var(--color-light);
     height: 78vh;
 }
 
 .message_header {
     height: 4rem;
     display: grid;
-    background: var(--color-light);
-    grid-template-columns: 4rem 39rem 3rem 2rem;
+    background: var(--color-white);
+    grid-template-columns: 4rem auto;
     gap: 1rem;
     padding: 0.2rem 1rem 0;
+    margin-bottom:0.2rem;
 }
 
 .last_header {
     height: 4rem;
-    background: var(--color-light);
+    background: var(--color-white);
     gap: 1rem;
     padding: 0.2rem 1rem 0;
+    margin-bottom:0.2rem;
 }
+
 
 .message_header img {
     width: 3.5rem;
@@ -63,6 +66,7 @@
 
 .mess_profile {
     border-radius: 50%;
+    border:1px solid black;
 }
 
 .mess_search {
@@ -72,15 +76,28 @@
 .message_area {
     overflow: auto;
     height: 69.5vh;
-    background-color: var(--color-dark-variant);
+    background-color: var(--color-white);
 }
 
 .receved {
     margin-left: 2rem;
+    direction:ltr;
+    margin:1.5rem 20rem 0 1rem ;
+    background-color:white;
+    box-shadow:var(--box-shadow);
+    padding:1rem;
+    border-radius:var(--border-radius-3);
 }
 
 .sent {
-    margin-right: 2rem;
+    margin-left: 2rem;
+    color:white;
+    direction: rtl;
+    margin:1.5rem 1rem 0rem 20rem;
+    background-color: rgb(22 191 255);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    border-radius: var(--border-radius-3);
 }
 
 .receved img {
@@ -110,7 +127,7 @@
 }
 
 .last_chat_container {
-    width: 75%;
+    width: 99%;
     height: 99vh;
     margin-top: 3.7rem;
 }
@@ -164,72 +181,83 @@
         text-align: center;
         color: var(--color-white);
         margin-top: 0.5rem;
-        padding: 0;
+
     }
 
-.write_area img {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin-right: 2rem;
+.write_area > img {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left:70px;
+    top:15px;    
 }
 
-.write_area {
-    display: grid;
-    position: relative;
-    padding: 0.7rem;
-    width: 100%;
-    background-color: var(--color-light);
-    grid-template-columns: 1rem auto;
-    direction: ltr;
-    bottom: 0rem;
-}
+    .write_area > img:hover{
+        cursor:pointer;
+    }
 
-form {
+    .write_area {
+        display: grid;
+        position: relative;
+        padding: 0.7rem;
+        width: 99%;
+        bottom: 0rem;
+        border-radius: 0;
+        box-shadow: 0;
+    }
+
+.text_erea_form {
     display: grid;
     grid-template-columns: 37rem 5rem;
-    width: 30vw;
+    width: 120%;
     margin-left: 4rem;
 }
 
-    form input[type="text"] {
-        background-color: var(--color-white);
+    .text_erea_form input[type="text"] {
+        background-color: lightblue;
         border: 1px;
         border-width: 1;
         padding: 1rem;
+        padding-left:4rem;
         height: 50px;
-        margin-right: 1rem;
-        width: 100%;
+        margin-right: 0rem;
+        width: 112%;
         direction: rtl;
         border-radius: 20px;
     }
 
-    form input[type="submit"] {
-        background-color: #41f1b6;
-        border: 1px;
-        padding: 1rem;
-        margin-left: 1rem;
-        border-radius: 20px;
-        height: 45px;
-        width: 60px;
+.submit_mess{
+    background-color:transparent;
+}
+
+.text_erea_form button{
+    position:absolute;
+    float:right;
+    right:0;
+}
+
+
+.text_erea_form button img {
+    background-color: rgb(22 191 255);
+    border: 1px;
+    padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+    .text_erea_form button img:hover{
+        cursor:pointer;
     }
 
-@media screen and (max-width:768px) {
-    .mess_container {
-        width: 96vw;
+    @media screen and (max-width:768px) {
+        .mess_container {
+        width: 98vw;
         margin-left: 2rem;
     }
 
-    .message_header {
-        height: 4rem;
-        display: grid;
-        background: var(--color-light);
-        grid-template-columns: 4rem 19rem 3rem 1rem;
-        gap: 1rem;
-        padding: 0.2rem 1rem 0;
-        position: relative;
-        width: 96%;
-    }
+
 
     .mess_container img {
         width: 3rem;
@@ -244,9 +272,14 @@ form {
 
 
 
-    .write_area img {
-        height: 34px;
-        width: 38px;
+
+
+
+    .write_area > img {
+        top:7px;
+        height:30px;
+        width:30px;
+        left:60px;
         margin-top: 0.3rem;
         margin-left: 0.2rem;
     }
@@ -257,7 +290,7 @@ form {
         grid-template-columns: 1rem auto;
     }
 
-    form {
+    .text_erea_form {
         display: grid;
         grid-template-columns: 20rem 7rem;
         margin-top: 0.3rem;
@@ -266,27 +299,49 @@ form {
         align-items: center;
     }
 
-        form input[type="text"] {
+        .text_erea_form input[type="text"] {
             margin: 0;
-            width: 100%;
+            width: 120%;
             height: 80%;
             border-radius: 20px;
         }
 
-        form input[type="submit"] {
-            background-color: #41f1b6;
-            border: 1px;
-            padding: 1rem;
-            margin-left: 0rem;
-            border-radius: 20px;
-            height: 35px;
-            width: 60px;
-            color: white;
-        }
 
     .last_chat_container {
         width: 90vw;
         height: 90vh;
         margin-right: 2rem;
     }
+
+        .receved {
+            margin-left: 2rem;
+            direction: ltr;
+            margin: 1.5rem 5rem 0 1rem;
+            background-color: white;
+            padding: 1rem;
+
+        }
+
+        .sent {
+            margin-left: 2rem;
+            color: white;
+            direction: rtl;
+            margin: 1.5rem 1rem 0rem 4rem;
+            background-color: rgb(22 191 255);
+            box-shadow: var(--box-shadow);
+            padding: 1rem;
+            border-radius: var(--border-radius-3);
+        }
+
+
+        .text_erea_form button img {
+            border: 1px;
+            padding: 1rem;
+            margin-left: 1rem;
+            border-radius: 50px;
+            height: 40px;
+            width: 40px;
+        }
+
+
 }

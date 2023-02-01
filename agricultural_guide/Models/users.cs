@@ -5,6 +5,8 @@
         public string _id { get; set; }
         public string name { get; set; }
         public string phone { get; set; }
+        public string uid { get; set; }
+        public string pass { get; set; }
         public string about { get; set; }
         public string specialize { get; set; }
         public string image_path { get; set; }

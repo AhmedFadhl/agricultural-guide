@@ -23,7 +23,21 @@ namespace agricultural_guide.Controllers
                 }
             }
 
+
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if (phone != "" && name != "")
+            {
+                
             return View(dataList);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
         }
 
 
@@ -36,7 +50,18 @@ namespace agricultural_guide.Controllers
         {
 
 
-            return View();
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if (phone != "" && name != "")
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
 
@@ -65,6 +90,9 @@ namespace agricultural_guide.Controllers
                     var model = JsonConvert.DeserializeObject<crop>(apiResponse.Result);
                 }
             }
+
+
+
 
             return RedirectToAction(nameof(advertiser));
         }
@@ -108,7 +136,20 @@ namespace agricultural_guide.Controllers
             }
 
 
+
+
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if (phone != "" && name != "")
+            {
+
             return View(advertiser);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: StudentController/Edit/5
@@ -158,7 +199,18 @@ namespace agricultural_guide.Controllers
                 }
             }
 
-            return View(dataList);
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if (phone != "" && name != "")
+            {
+
+                return View(dataList);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         public ActionResult add_ads()
@@ -183,7 +235,19 @@ namespace agricultural_guide.Controllers
                 Text = x.name
             });
 
-            return View(model);
+
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if (phone != "" && name != "")
+            {
+
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
 
@@ -278,8 +342,18 @@ namespace agricultural_guide.Controllers
             });
 
 
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
 
-            return View(advertisement);
+            if (phone != "" && name != "")
+            {
+
+                return View(advertisement);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: StudentController/Edit/5

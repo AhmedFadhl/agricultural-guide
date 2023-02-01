@@ -1,4 +1,22 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor context
+@{
+
+    var name = context.HttpContext.Session.GetString("user");
+    var phone = context.HttpContext.Session.GetString("phone");
+    var type = context.HttpContext.Session.GetInt32("type");
+    var image = context.HttpContext.Session.GetString("image");
+    var types="";
+    if (type==0)
+    {
+         types = "مدير";
+    }
+    else if(type==1)
+    {
+         types = "مرشد";
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +32,8 @@
         <link rel="stylesheet" href="~/css/fer.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/post.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/psets.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/mess.css" asp-append-version="true" />
+
 
     <title>Dashboard</title>
 </head>
@@ -42,8 +62,8 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>مرحبا ,<b>أدمن</b></p>
-                    <small class="text-muted">مدير</small>
+                    <p>مرحبا ,<b>@name</b></p>
+                    <small class="text-muted">@types</small>
                 </div>
                 <div class="profile-photo">
                     <img src="~/images/pro.jpg" alt="profile-photo">
@@ -59,7 +79,7 @@
                    <!-- <img src="" alt="">-->
                     <div class="close" id="close-btn">
                      <!--   <span class="material-symbols-sharp">close</span>-->
-                     <img src="~/images/icons8-macos-close-32.png" alt="">
+                     <img src="~/images/icons/icons8-dashboard-layout-24.png" alt="">
                     </div>
 
                 </div>
@@ -158,7 +178,7 @@
                     <div >
                     
                         <div class="main_menu">
-                            <a href="pages/messages.html">
+                            <a asp-controller=Messages asp-action=Messages>
                                 <img src="~/images/icons/icons8-group-message-50.png" alt="">
                                 <h3>الرسائل</h3>
                                 </a>

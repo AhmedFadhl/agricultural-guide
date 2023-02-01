@@ -15,7 +15,17 @@ namespace agricultural_guide.Controllers
 
         public IActionResult Index()
         {
+            var phone = HttpContext.Session.GetString("phone");
+            var name = HttpContext.Session.GetString("user");
+
+            if(phone!=null&&name!=null&&(phone!=""&&name!=""))
+            {
             return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         public IActionResult Privacy()

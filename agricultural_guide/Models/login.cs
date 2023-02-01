@@ -2,8 +2,8 @@
 {
     public class login
     {
-        public string phone { get; set; }
-        public string name { get; set; }
+        public string uname { get; set; }
+        public string upass { get; set; }
 
     }
 }

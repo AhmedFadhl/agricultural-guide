@@ -216,16 +216,22 @@
                     </div>
                             
                         </div>
-                    <div >
+                      <div>
                     
-                        <div class="main_menu">
-                            <a href="pages/advertisments.html">
-                                <img src="~/images/icons/online.png" alt="">
-                                <h3>أستشاري بيع المحاصيل</h3>
-                                </a>
-                        </div>
-                            
-                        </div>
+                    <div class="main_menu" onclick="sub_menu()">
+                        <!--
+                            <span class="material-symbols-sharp">home</span> --> 
+                            <img src="~/images/icons/sales.png" alt="">
+                            <h3>إستشاري بيع المحاصيل</h3>
+                            <span>></span>
+                    </div>
+                        <ul>
+                            <li><a asp-action="Location" asp-controller="Sales">مناطق البيع </a></li>
+                            <li><a asp-action="adddisease" asp-controller="Disease"> بيع المحاصيل  </a></li>
+                           
+                        </ul>
+                    </div>
+                
                     <div >
                     
                         <div class="main_menu">

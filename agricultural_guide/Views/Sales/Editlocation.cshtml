@@ -1,0 +1,54 @@
+﻿  @model agricultural_guide.Models.Location
+
+   <main>
+
+            <div class="">
+                <h2> مناطق البيع </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>تعديل <b>منطقة بيع </b></h2>
+                    <form enctype="multipart/form-data" asp-action="Editlocation">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المنطقه</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div> 
+                        <div >
+                            <span>رابط المنطقه</span>
+                            <input class="fild"  asp-for=map_link placeholder="" >
+                        </div>
+                        <div>
+                            <span>المنطقه</span>
+                            <input class="fild"  asp-for=location placeholder="" >
+                        </div>
+                        
+                       
+                             <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="saleLocation_image"   asp-for=saleLocation_image placeholder="" >
+                        </div>
+
+                        </div>
+                      
+                    <div>
+
+                     <div class="ssubmitbtn">
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

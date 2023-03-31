@@ -1,0 +1,82 @@
+﻿  @model agricultural_guide.Models.Location
+
+   <main>
+
+
+      
+
+
+            <div class="">
+                <h2> مناطق البيع </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>منطقة بيع جديدة</b></h2>
+                    <form enctype="multipart/form-data" asp-action="add_Location">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المنطقه</span>
+                            <input class="fild" required asp-for=name placeholder="" >
+                        </div> 
+                       
+                        <div>
+                            <span>المنطقه</span>
+                            <input class="fild" required  asp-for=location placeholder="" >
+                        </div>
+                           <div >
+                            <span >المحصول </span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.crop_id, Model.crops, "أختر المحصول ")
+
+                            </div>
+                            </div>
+                              <div >
+                            <span >المديرية </span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.governorate_id, Model.governorates, "أختر المديريه ")
+
+                            </div>
+                            </div>
+                           
+
+
+
+
+                       
+                             <div>
+                            <span>صورة المحصول</span>
+                            <input class="fild" multiple type="file" name="saleLocation_image" required  asp-for=saleLocation_image placeholder="" >
+                        </div>
+                         <div >
+                            <input class="fild" id="latitude" type="hidden" required asp-for=locationX placeholder="" >
+                            <input class="fild" id="longitude" type="hidden" required asp-for=locationY placeholder="" >
+                        </div>
+                        </div>
+                           <span>اختار الموقع في الخريطة</span>
+                            <div id="map"></div>
+
+                      
+                    <div>
+                        
+
+                     <div class="ssubmitbtn">
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

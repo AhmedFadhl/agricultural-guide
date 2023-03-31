@@ -1,24 +1,107 @@
 ﻿@model IEnumerable<agricultural_guide.Models.crop>
+
+
+
+       <script>  
+        $(document).ready(function () {  
+            $("#dtable").DataTable({  
+  
+                "processing": true, // for show progress bar  
+                "serverSide": true, // for process server side  
+                "filter": false, // this is for disable filter (search box)  
+                "orderMulti": false, // for disable multiple column at once  
+                "pageLength": 10,
+
+                "ajax": {  
+                    "url": "/Crop/getdata",  
+                    "type": "POST",  
+                    "datatype": "json",
+                     
+                },  
+  
+                  "dom": 'Blfrtip',
+                 "buttons": [
+        
+                     {
+                         extend:    'excel',
+                         text:      '<i class="excel"></i>تصدير',
+                         titleAttr: 'Excel'
+                     },
+                     {
+                         extend:    'print',
+                         text:      '<i class="excel"></i>طباعة',
+                         titleAttr: 'PRINT'
+                     },
+                     {
+                         extend:    'pdf',
+                         text:      '<i class="excel"></i>pdf',
+                         titleAttr: 'PDF'
+                     }
+               ],
+                
+               
+
+                "columns": [  
+                       
+                      
+
+                      { "sName": "name", "autoWidth": true ,"searchable":true },  
+                      { "sName": "type", "autoWidth": true ,"searchable":true },  
+                      { "sName": "crop_type", "autoWidth": true ,"searchable":true },  
+                      { "sName": "description", "autoWidth": true ,"searchable":true },  
+ 
+  
+                      {  
+                          "render": function (data, type, full, meta)  
+                          { return '<a class="edit" href="/Crop/Editcrop/' +full._id  + '">Edit</a>'; }  
+                      },{
+                           data: null, render: function (data, type, row) {  
+                               return "<a href='#' class='delet' onclick=DeleteData('" + row._id + "'); >Delete</a>";  
+                           }  
+                       },  
+  
+                ],
+                 
+              
+
+                
+  
+            });  
+
+        }); 
+        
+      
+
+
+    </script> 
+
+
+
+
+
+
+
  <main>
       <div class="pestpage">
                 <h2>إدارة <b>المحاصيل</b> </h2>
                 <button><a asp-action="addcrop" asp-controller="Crop">إضافة</a></button>
               </div>
             <div class="devicer_manage">
-                <table>
+                <table id="dtable" style="width:100%;">
                     <thead>
                         <tr>
                             <th>أسم المحصول </th>
                             <th> كيفية التسميد</th>
                             <th>نوع المحصول</th>
                             <th>الوصف</th>
-                            <th>إدارة</th>
+                            <th>تعديل</th>
+                            <th>حذف</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody> 
 
-                            @foreach (var item in Model)
+                      @*      @foreach (var item in Model)
                             {
                     @if (item.state == 2)
                     {
@@ -54,7 +137,7 @@
                         </tr>
                         }
                             }
-                            
+                            *@
                         
                       
                     </tbody>

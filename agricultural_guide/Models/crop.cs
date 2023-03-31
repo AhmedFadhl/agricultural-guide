@@ -16,6 +16,7 @@ namespace agricultural_guide.Models
         public IFormFile crop_image { get; set; }
         public string description { get; set; }
         public int type { get; set; }
+        public string stringtype { get; set; }
         public int state { get; set; }
         public string crop_type { get; set; }
         public virtual IEnumerable<SelectListItem> crop_types { get; set; }

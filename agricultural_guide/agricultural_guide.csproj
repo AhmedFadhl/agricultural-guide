@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Sales\**" />
+    <Content Remove="Views\Sales\**" />
+    <EmbeddedResource Remove="Views\Sales\**" />
+    <None Remove="Views\Sales\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 
@@ -17,6 +24,7 @@
     <PackageReference Include="FirebaseAuthentication.net" Version="4.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Mvc.JQuery.Datatables" Version="1.5.56" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
   </ItemGroup>

@@ -25,9 +25,14 @@
                             <td>@item._id</td>
                             <td>@item.name</td>
                             <td>@item.description</td>
-                            <td class="management">
-                             <span class="edit"> @Html.ActionLink("تعديل","Edit_fertilizer",new{id=@item._id})</span>
-                             <span class="delet">@Html.ActionLink("حذف","Delete_fertilizer",new{id=@item._id})</span>
+
+
+                            
+                              <td class="management">
+                             <span class="edit"><a href="@Url.Action("Edit_fertilizer", "Fertilizer",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Delete_fertilizer", "Fertilizer",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/trash.png"> </a></span>
 
                             </td>
                         </tr>

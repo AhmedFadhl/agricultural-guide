@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 
@@ -28,6 +29,111 @@ namespace agricultural_guide.Controllers
 
             return View(dataList);
         }
+
+
+
+
+
+        public ActionResult getdata(JqueryDatatableParam param)
+        {
+
+            List<crop> datatablemodels = new List<crop>();
+            var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
+            var start = Request.Form["start"].FirstOrDefault();
+            var length = Request.Form["length"].FirstOrDefault();
+            var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
+            var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
+            var searchValue = Request.Form["search[value]"].FirstOrDefault();
+
+            //Paging Size (10, 20, 50,100)  
+            int pageSize = length != null ? Convert.ToInt32(length) : 0;
+
+            int skip = start != null ? Convert.ToInt32(start) : 0;
+
+            int recordsTotal = 0;
+
+            // getting all Customer data  
+
+            //Sorting  
+            
+
+
+            IEnumerable<crop> filteredCompanies;
+
+            List<string> tests = new List<string>();
+            List<crop> dataList = new List<crop>();
+            string type;
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = httpClient.GetAsync(uri.url + "crop"))
+                {
+                    var sections = response.Result.Content.ReadAsStringAsync();
+                    dataList = JsonConvert.DeserializeObject<List<crop>>(sections.Result);
+                }
+            }
+            foreach(var item in dataList) {
+                if (item.state == 2)
+                {
+                    if (item.type == 1)
+                    {
+                        type = "عبر الأشجار";
+                    }
+                    else
+                    {
+                        type = "عبر المساحه";
+                    }
+                    item.stringtype = type;
+                    datatablemodels.Add(item);
+                }
+                }
+
+
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                filteredCompanies = datatablemodels
+                         .Where(c => c.name.Contains(searchValue)
+                                     ||
+                          c.crop_type.Contains(searchValue)
+                                     ||
+                                    Convert.ToString(c.type).Contains(searchValue)
+                                     ||
+                                    Convert.ToString(c.description).Contains(searchValue));
+            }
+            else
+            {
+                filteredCompanies = datatablemodels;
+            }
+
+            if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
+            {
+                filteredCompanies = filteredCompanies.OrderBy(c=> sortColumn);
+            }
+
+            var displayedCompanies = filteredCompanies;
+           
+            //This method is returning the IEnumerable employee from database
+            var result = from c in displayedCompanies
+                         select new[] { c.name, c.stringtype, c.crop_type,c.description ,c._id};
+
+         
+
+            var data = result.Skip(skip).Take(pageSize).ToList();
+            var totalRecords = displayedCompanies.Count();
+
+
+            
+            return Json(new
+            {
+                draw = draw,
+                recordsFiltered = totalRecords,
+                recordsTotal = totalRecords,
+                data = data
+            });
+        }
+
+
+
+
 
         public ActionResult addcrop()
         {

@@ -196,3 +196,8 @@ function showDetiels2(crop_name, stage, fertilizer, fertilizer_type, image_path,
 
 
 
+
+
+
+
+

@@ -28,10 +28,12 @@
                             <td></td>
                             <td></td>
 
-                            <td class="management">
-                             <span class="edit">@Html.ActionLink("تعديل","Editfertilizer_stage",new{id=@item._id})</span>
-                              <span  class="detiels">مواصفات</span>
-                             <span class="delet">@Html.ActionLink("حذف","Deletefertilizer_stage",new{id=@item._id})</span>
+
+                              <td class="management">
+                             <span class="edit"><a href="@Url.Action("Editfertilizer_stage", "Fertilizer",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Deletefertilizer_stage", "Fertilizer",new{id=@item._id})">
+                         <img alt=@item.name src="/images/icons/trash.png"> </a></span>
 
                             </td>
                         </tr>

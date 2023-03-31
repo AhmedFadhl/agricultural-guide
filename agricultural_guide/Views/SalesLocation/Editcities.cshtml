@@ -1,38 +1,34 @@
-﻿  @model agricultural_guide.Models.Location
+﻿  @model agricultural_guide.Models.Cities
 
    <main>
+
+
+      
+
 
             <div class="">
                 <h2> مناطق البيع </h2>
             </div>
             <div class="adddev">
                 <div class="addfild">  
-                    <h2>تعديل <b>منطقة بيع </b></h2>
-                    <form enctype="multipart/form-data" asp-action="Editlocation">
+                    <h2>تعديل <b>محافظة</b></h2>
+                    <form enctype="multipart/form-data" asp-action="Editcities">
                         <div>
                     
                         <div >
-                            <span>أسم المنطقه</span>
-                            <input class="fild"  asp-for=name placeholder="" >
+                            <span>أسم المحافظة</span>
+                            <input class="fild" required asp-for=name placeholder="" >
                         </div> 
-                        <div >
-                            <span>رابط المنطقه</span>
-                            <input class="fild"  asp-for=map_link placeholder="" >
-                        </div>
+                       
                         <div>
-                            <span>المنطقه</span>
-                            <input class="fild"  asp-for=location placeholder="" >
+                            <span>الوصف</span>
+                            <input class="fild" required  asp-for=description placeholder="" >
                         </div>
                         
                        
-                             <div>
-                            <span>صورة المحصول</span>
-                            <input class="fild" multiple type="file" name="saleLocation_image"   asp-for=saleLocation_image placeholder="" >
                         </div>
-
-                        </div>
-                      
                     <div>
+                        
 
                      <div class="ssubmitbtn">
                             <input class="submit" value="Save" type="submit">

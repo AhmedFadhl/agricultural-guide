@@ -1,0 +1,55 @@
+﻿  @model agricultural_guide.Models.governorate
+
+   <main>
+
+            <div class="">
+                <h2> المديريات  </h2>
+            </div>
+            <div class="adddev">
+                <div class="addfild">  
+                    <h2>إضافة <b>مديرية جديدة </b></h2>
+                    <form enctype="multipart/form-data" asp-action="add_governorate">
+                        <div>
+                    
+                        <div >
+                            <span>أسم المديريه</span>
+                            <input class="fild"  asp-for=name placeholder="" >
+                        </div>
+
+                        <div>
+                            <span>الوصف</span>
+                            <input class="fild"  asp-for=description placeholder="" >
+                        </div>
+                        
+                          <div >
+                            <span >المحافظة </span>
+                            <div class="fild">
+
+                             @Html.DropDownListFor(x => Model.city_id, Model.cities, "أختر المحافظة ")
+
+                            </div>
+                            </div>
+                           
+
+                        </div>
+                      
+                    <div>
+
+                     <div class="ssubmitbtn">
+                            <input class="submit" value="Save" type="submit">
+                            <button class="cancel" onclick="backtocrop()" >الغاء</button>
+                    </div>
+                    </div>
+                    </form>
+            </div>
+            </div>
+            <!--
+                <div class="date">
+                    <input type="date">
+                </div>
+            -->
+          
+           
+        </main>
+        <!--main end-->
+       

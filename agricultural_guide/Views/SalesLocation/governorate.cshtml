@@ -1,0 +1,133 @@
+﻿@model IEnumerable<agricultural_guide.Models.governorate>
+ <main>
+
+
+        <script>  
+        $(document).ready(function () {  
+            $("#dtable").DataTable({  
+  
+                "processing": true, // for show progress bar  
+                "serverSide": true, // for process server side  
+                "filter": false, // this is for disable filter (search box)  
+                "orderMulti": false, // for disable multiple column at once  
+                "pageLength": 10,
+
+                "ajax": {  
+                    "url": "/Crop/getdata",  
+                    "type": "POST",  
+                    "datatype": "json",
+                     
+                },  
+  
+                  "dom": 'Blfrtip',
+                 "buttons": [
+        
+                     {
+                         extend:    'excel',
+                         text:      '<i class="excel"></i>تصدير',
+                         titleAttr: 'Excel'
+                     },
+                     {
+                         extend:    'print',
+                         text:      '<i class="excel"></i>طباعة',
+                         titleAttr: 'PRINT'
+                     },
+                     {
+                         extend:    'pdf',
+                         text:      '<i class="excel"></i>pdf',
+                         titleAttr: 'PDF'
+                     }
+               ],
+                
+               
+
+                "columns": [  
+                       
+                      
+
+                      { "sName": "name", "autoWidth": true ,"searchable":true },  
+                      { "sName": "type", "autoWidth": true ,"searchable":true },  
+                      { "sName": "crop_type", "autoWidth": true ,"searchable":true },  
+                      { "sName": "description", "autoWidth": true ,"searchable":true },  
+ 
+  
+                      {  
+                          "render": function (data, type, full, meta)  
+                          { return '<a class="edit" href="/Crop/Editcrop/' +full._id  + '">Edit</a>'; }  
+                      },{
+                           data: null, render: function (data, type, row) {  
+                               return "<a href='#' class='delet' onclick=DeleteData('" + row._id + "'); >Delete</a>";  
+                           }  
+                       },  
+  
+                ],
+                 
+              
+
+                
+  
+            });  
+
+        }); 
+        
+      
+
+
+    </script> 
+
+
+
+
+
+
+
+      <div class="pestpage">
+                <h2>إدارة <b> المديريات </b> </h2>
+                <button><a asp-action="add_governorate">إضافة</a></button>
+              </div>
+            <div class="devicer_manage">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>أٍسم المديرية </th>
+                            <th>الوصف</th>
+                            <th>إدارة</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+
+                            @foreach (var item in Model)
+                            {
+                   
+                        <tr>
+                            <td>@item.name</td>
+                            <td>@item.description</td>
+
+
+                             <td class="management">
+                             <span class="edit"><a href="@Url.Action("Editgovernorate", "SalesLocation",new{id=@item._id})">
+                             <img alt=@item.name src="/images/icons/draw.png"> </a></span>
+                             <span class="delet"><a href="@Url.Action("Deletegovernorate", "SalesLocation",new{id=@item._id})">
+                             <img alt=@item.name src="/images/icons/delete.png"> </a></span>
+
+                            </td>
+
+                           
+                        </tr>
+                        
+                            }
+                            
+                        
+                      
+                    </tbody>
+                </table>
+             <!--
+
+                 <a href="#"> رؤية المزيد</a>
+                -->
+            </div>
+            </main>
+        <!--main end-->
+        <!--right side strart-->
+       

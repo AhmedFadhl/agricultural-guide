@@ -2,17 +2,16 @@
  <main>
       <div class="pestpage">
                 <h2>إدارة <b>مناطق البيع</b> </h2>
-                <button><a asp-action="add_Location" asp-controller="Sales">إضافة</a></button>
+                <button><a asp-action="add_Location" asp-controller="SalesLocation">إضافة</a></button>
               </div>
             <div class="devicer_manage">
                 <table>
                     <thead>
                         <tr>
                             <th>أسم المنطقه </th>
-                            <th>  رابط المنطقه</th>
-                            <th> الموقع</th>
+                            <th> المديرة</th>
+                            <th> المحافظة</th>
                             <th>إدارة</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody> 
@@ -24,16 +23,15 @@
                             var path = url.url + item.image_path;
                       
 
-                        <tr onclick="showDetiels('@item.name','@item.location','@item.map_link','','@path')">
+                        <tr onclick="showDetiels('@item.name','@item.location','@item.locationX','@item.locationY','@path')">
                            
                             <td>@item.name</td>
-
-                            <td>@item.map_link</td>
                             <td>@item.location</td>
+                            <td></td>
                             <td class="management">
-                             <span class="edit"><a href="@Url.Action("Editlocation", "Sales",new{id=@item._id})">
+                             <span class="edit"><a href="@Url.Action("Editlocation", "SalesLocation",new{id=@item._id})">
                          <img alt=@item.name src="/images/icons/draw.png"> </a></span>
-                             <span class="delet"><a href="@Url.Action("Deletelocation", "Sales",new{id=@item._id})">
+                             <span class="delet"><a href="@Url.Action("Deletelocation", "SalesLocation",new{id=@item._id})">
                          <img alt=@item.name src="/images/icons/trash.png"> </a></span>
 
                             </td>
@@ -74,11 +72,11 @@
                             
                           
                                 <div class="crop-info">
-                                    <h3>أسم المحصول :</h3>
+                                    <h3>أسم السوق :</h3>
                                     <h3 id="name_crop"></h3>
-                                    <h3>كيفية التسميد :</h3>
+                                    <h3> المديرية :</h3>
                                     <h3 id="type"> </h3>
-                                    <h3>نوع المحصول :</h3>
+                                    <h3>المحافظة  :</h3>
                                     <h3 id="type_crop"></h3>
                                     
                                 </div>

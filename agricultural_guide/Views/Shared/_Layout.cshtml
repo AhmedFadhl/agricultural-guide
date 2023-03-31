@@ -10,7 +10,7 @@
     {
          types = "مدير";
     }
-    else if(type==1)
+    else if(type==3)
     {
          types = "مرشد";
     }
@@ -23,16 +23,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-      <link  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp"
-      rel="stylesheet">
+
   
         <link rel="stylesheet" href="~/css/dash.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/fer.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/post.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/psets.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/mess.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/jquery.dataTables.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/leafleft.css" asp-append-version="true"/>
+
+    <script src="~/js/jquery.min.js" asp-append-version="true"></script>  
+    <script src="~/js/dataTables.bootstrap.min.js" asp-append-version="true"></script>  
+    <script src="~/js/jquery.dataTables.min.js" asp-append-version="true"></script>  
+    <script src="~/js/dataTables.buttons.min.js" asp-append-version="true"></script>  
+    <script src="~/js/buttons.colVis.min.js" asp-append-version="true"></script>  
+    <script src="~/js/buttons.html5.min.js" asp-append-version="true"></script>  
+    <script src="~/js/buttons.bootstrap5.min.js" asp-append-version="true"></script>  
+    <script src="~/js/buttons.print.min.js" asp-append-version="true"></script>   
+    <script src="~/js/jszip.min.js" asp-append-version="true"></script>   
+    <script src="~/js/pdfmake.min.js" asp-append-version="true"></script>   
+    <script src="~/js/vfs_fonts.js" asp-append-version="true"></script>   
+    <script src="~/js/leafleft.js" asp-append-version="true"></script>   
+
+
 
 
     <title>Dashboard</title>
@@ -165,6 +179,11 @@
                             
                         </div>
                     
+
+
+
+
+
                           <div >
                           
                               <div class="main_menu">
@@ -175,7 +194,8 @@
                               </div>
                                   
                               </div>
-                    <div >
+                              
+                  @*  <div >
                     
                         <div class="main_menu">
                             <a asp-controller=Messages asp-action=Messages>
@@ -184,18 +204,18 @@
                                 </a>
                         </div>
                             
-                        </div>
-              
+                        </div>*@
+              @*
                     <div >
                     
                         <div class="main_menu">
-                            <a href="pages/post.html">
+                            <a asp-action="post" asp-controller="post">
                                 <img src="~/images/icons/online.png" alt="">
                                 <h3>المنشورات</h3>
                                 </a>
                         </div>
                             
-                        </div>
+                        </div>*@
                     <div >
                     
                        <div>
@@ -226,8 +246,9 @@
                             <span>></span>
                     </div>
                         <ul>
-                            <li><a asp-action="Location" asp-controller="Sales">مناطق البيع </a></li>
-                            <li><a asp-action="adddisease" asp-controller="Disease"> بيع المحاصيل  </a></li>
+                            <li><a asp-action="Location" asp-controller="SalesLocation">مناطق البيع </a></li>
+                            <li><a asp-action="cities" asp-controller="SalesLocation"> بيع المحاصيل  </a></li>
+                            <li><a asp-action="governorate" asp-controller="SalesLocation"> بيع المحاصيل  </a></li>
                            
                         </ul>
                     </div>
@@ -252,9 +273,8 @@
 @RenderBody()
 
 </div>
- <script  asp-append-version="true" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="~/js/dash.js" asp-append-version="true"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/map.js" asp-append-version="true"></script>
 
 </body>
 </html>

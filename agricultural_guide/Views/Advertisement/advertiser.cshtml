@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<agricultural_guide.Models.Advertisers>
  <main>
       <div class="pestpage">
-                <h2>إدارة <b>المحاصيل</b> </h2>
+                <h2>إدارة <b>الأعلانات</b> </h2>
                 <button><a asp-action="addadvertiser" asp-controller="Advertisement">إضافة</a></button>
               </div>
             <div class="devicer_manage">
                 <table>
                     <thead>
                         <tr>
-                            <th>أسم المحصول </th>
-                            <th> كيفية التسميد</th>
-                            <th>نوع المحصول</th>
+                            <th>أسم المعلن </th>
+                            <th> الأيميل </th>
+                            <th>رقم الهاتف </th>
                             <th>الوصف</th>
                             <th>إدارة</th>
                             <th></th>
@@ -33,12 +33,12 @@
                              <span class="edit"><a href="@Url.Action("Editadvertiser", "Advertisement",new{id=@item._id})">
                          <img alt=@item.name src="/images/icons/draw.png"> </a></span>
                              <span class="delet"><a href="@Url.Action("Deleteadvertiser", "Advertisement",new{id=@item._id})">
-                         <img alt=@item.name src="/images/icons/trash.png.png"> </a></span>
+                         <img alt=@item.name src="/images/icons/trash.png"> </a></span>
 
                             </td>
                         </tr>
                         }
-                            }
+                            
                             
                         
                       
